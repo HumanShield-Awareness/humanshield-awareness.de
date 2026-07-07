@@ -1,0 +1,99 @@
+---
+import { GITHUB_REPO_URL, SALES_EMAIL } from "../lib/pricing";
+
+const year = new Date().getFullYear();
+
+/**
+ * TODO: Sobald das Paddle-Kundenportal eingerichtet ist, die von Paddle
+ * bereitgestellte Portal-URL hier eintragen (Konvention aus CLAUDE.md).
+ */
+const PADDLE_PORTAL_URL = "#";
+---
+
+<footer class="border-t border-gray-100 bg-gray-50">
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <a href="/" class="flex items-center gap-2 font-bold text-gray-900">
+          <span
+            class="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-500 text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="h-4 w-4"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12 2.25c.223 0 .445.043.652.127l6.75 2.7a1.125 1.125 0 0 1 .698 1.043v5.13c0 4.661-2.905 8.585-7.17 10.264a1.125 1.125 0 0 1-.86 0C7.155 19.84 4.25 15.915 4.25 11.25V6.12c0-.46.28-.874.698-1.043l6.75-2.7c.207-.084.43-.127.652-.127Z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </span>
+          HumanShield
+        </a>
+        <p class="mt-3 text-sm text-steel">
+          Security Awareness, die Ihre Mitarbeitenden zur stärksten
+          Verteidigungslinie macht.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-gray-900">Produkt</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="/#funktionen" class="text-steel hover:text-gray-900">Funktionen</a></li>
+          <li><a href="/preise" class="text-steel hover:text-gray-900">Preise</a></li>
+          <li><a href="/preise#preisrechner" class="text-steel hover:text-gray-900">Preisrechner</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-gray-900">Ressourcen</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            <a
+              href={GITHUB_REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-steel hover:text-gray-900">GitHub (Open Core)</a
+            >
+          </li>
+          <li>
+            <a href={PADDLE_PORTAL_URL} class="text-steel hover:text-gray-900"
+              >Rechnungen &amp; Abo verwalten</a
+            >
+          </li>
+          <li>
+            <a href={`mailto:${SALES_EMAIL}`} class="text-steel hover:text-gray-900"
+              >Kontakt</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-gray-900">Rechtliches</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="/impressum" class="text-steel hover:text-gray-900">Impressum</a></li>
+          <li><a href="/datenschutz" class="text-steel hover:text-gray-900">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="mt-10 flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-6 text-sm text-steel sm:flex-row"
+    >
+      <p>© {year} HumanShield Awareness. Alle Rechte vorbehalten.</p>
+      <p>
+        Zahlungsabwicklung über
+        <a
+          href="https://www.paddle.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-gray-900">Paddle</a
+        > (Merchant of Record)
+      </p>
+    </div>
+  </div>
+</footer>
