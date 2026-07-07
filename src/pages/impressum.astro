@@ -1,21 +1,20 @@
 ---
+import { getEntry, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+/* Inhalt aus src/content/seiten/impressum.md */
+const seite = await getEntry("seiten", "impressum");
+if (!seite) throw new Error("src/content/seiten/impressum.md fehlt");
+const { Content } = await render(seite);
 ---
 
-<BaseLayout title="Impressum – HumanShield Awareness">
+<BaseLayout title={`${seite.data.title} – HumanShield Awareness`}>
   <section class="mx-auto max-w-3xl px-4 py-20 sm:px-6">
-    <h1 class="text-3xl font-bold tracking-tight text-gray-900">Impressum</h1>
-    <div class="prose mt-8 text-steel">
-      <!-- TODO: Vollständiges Impressum gemäß § 5 DDG ergänzen -->
-      <p><strong>Angaben gemäß § 5 DDG</strong></p>
-      <p>
-        [Name / Firma]<br />
-        [Straße und Hausnummer]<br />
-        [PLZ und Ort]
-      </p>
-      <p>
-        E-Mail: support@secure-bits.org
-      </p>
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900">
+      {seite.data.title}
+    </h1>
+    <div class="prose prose-gray mt-8">
+      <Content />
     </div>
   </section>
 </BaseLayout>

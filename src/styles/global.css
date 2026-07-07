@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /*
  * Design-Tokens – angelehnt an netbird.io (hell, klar, Orange-Akzent),
