@@ -2,12 +2,13 @@
  * Zentrale Preis-Konfiguration – die EINZIGE Stelle, an der Preise,
  * Staffelung und Paddle-Preis-IDs gepflegt werden.
  *
- * ⚠️ ALLE PREISE UND STAFFELN SIND PLATZHALTER (siehe „Offene Punkte“ in der
- *    Installationsdoku). Vor Live-Schaltung hier finale Werte eintragen und
- *    die Paddle-Preis-IDs aus dem Paddle-Dashboard ersetzen.
+ * Preisstaffel: final (Stand Juli 2026).
+ * ⚠️ Die Paddle-Preis-IDs sind noch PLATZHALTER – vor Live-Schaltung die
+ *    IDs (pri_…) aus dem Paddle-Dashboard eintragen.
  *
  * Modell: Es gibt ausschließlich Jahrespreise (Jahresabo über Paddle),
  * gestaffelt nach Mitarbeiterzahl. Keine monatliche Abrechnung.
+ * Mindestbestellmenge: 25 Nutzer:innen.
  */
 
 export const GITHUB_ORG_URL = "https://github.com/securebitsorg";
@@ -17,7 +18,7 @@ export const GITHUB_REPO_URL = "https://github.com/securebitsorg/HumanShield.APP
 /** Kontakt für Enterprise-Anfragen */
 export const SALES_EMAIL = "support@secure-bits.org";
 
-/** Preis-Staffelung nach Mitarbeiterzahl – PLATZHALTER */
+/** Preis-Staffelung nach Mitarbeiterzahl */
 export interface PriceBand {
   /** Obergrenze Mitarbeiter (inklusive); null = „auf Anfrage“ */
   maxEmployees: number | null;
@@ -26,18 +27,30 @@ export interface PriceBand {
 }
 
 export const priceBands: PriceBand[] = [
-  { maxEmployees: 50, pricePerEmployeeYearly: 42 },
-  { maxEmployees: 250, pricePerEmployeeYearly: 34.8 },
-  { maxEmployees: 1000, pricePerEmployeeYearly: 26.4 },
-  { maxEmployees: null, pricePerEmployeeYearly: null }, // > 1000 → Enterprise-Kontakt
+  { maxEmployees: 50, pricePerEmployeeYearly: 25 },
+  { maxEmployees: 150, pricePerEmployeeYearly: 21 },
+  { maxEmployees: 300, pricePerEmployeeYearly: 18 },
+  { maxEmployees: 500, pricePerEmployeeYearly: 15 },
+  { maxEmployees: 1000, pricePerEmployeeYearly: 13 },
+  { maxEmployees: 2500, pricePerEmployeeYearly: 11 },
+  { maxEmployees: null, pricePerEmployeeYearly: null }, // > 2.500 → Enterprise-Kontakt
 ];
 
-export const MAX_SELF_SERVICE_EMPLOYEES = 1000;
+/** Mindestbestellmenge – kleinere Teams zahlen für 25 Nutzer:innen */
+export const MIN_ORDER_EMPLOYEES = 25;
+
+export const MAX_SELF_SERVICE_EMPLOYEES = 2500;
+
+/** Abgerechnete Menge: nie weniger als die Mindestbestellmenge */
+export function billableEmployees(employees: number): number {
+  return Math.max(employees, MIN_ORDER_EMPLOYEES);
+}
 
 export function bandFor(employees: number): PriceBand {
+  const billable = billableEmployees(employees);
   return (
     priceBands.find(
-      (b) => b.maxEmployees !== null && employees <= b.maxEmployees,
+      (b) => b.maxEmployees !== null && billable <= b.maxEmployees,
     ) ?? priceBands[priceBands.length - 1]
   );
 }
@@ -46,8 +59,11 @@ export function bandFor(employees: number): PriceBand {
 export function totalYearly(employees: number): number | null {
   const band = bandFor(employees);
   if (band.pricePerEmployeeYearly === null) return null;
-  // Auf Cent runden, um Fließkomma-Artefakte zu vermeiden (z. B. 100 × 34,8)
-  return Math.round(employees * band.pricePerEmployeeYearly * 100) / 100;
+  // Auf Cent runden, um Fließkomma-Artefakte zu vermeiden
+  return (
+    Math.round(billableEmployees(employees) * band.pricePerEmployeeYearly * 100) /
+    100
+  );
 }
 
 /** Günstigster Staffelpreis – für die „ab …“-Anzeige auf der Preiskarte */
@@ -95,7 +111,7 @@ export const tiers: Tier[] = [
   {
     id: "business",
     name: "Business",
-    tagline: "Für Unternehmen bis 1.000 Mitarbeitende",
+    tagline: "Für Unternehmen bis 2.500 Mitarbeitende",
     features: [
       "Alle Community-Funktionen",
       "Erweiterte Phishing-Simulationen & Kampagnen",
@@ -109,7 +125,7 @@ export const tiers: Tier[] = [
   {
     id: "enterprise",
     name: "Enterprise",
-    tagline: "Für große Organisationen ab 1.000 Mitarbeitenden",
+    tagline: "Für große Organisationen ab 2.500 Mitarbeitenden",
     features: [
       "Alle Business-Funktionen",
       "Individuelle Staffelpreise",

@@ -8,8 +8,10 @@
 import { useMemo, useState } from "react";
 import {
   bandFor,
+  billableEmployees,
   formatEuro,
   MAX_SELF_SERVICE_EMPLOYEES,
+  MIN_ORDER_EMPLOYEES,
   SALES_EMAIL,
   tiers,
   totalYearly,
@@ -17,7 +19,7 @@ import {
 import { openCheckout } from "../../lib/paddle";
 
 const MIN = 1;
-const MAX = 1500; // Slider bewusst über die Selbstbedienungs-Grenze hinaus
+const MAX = 3000; // Slider bewusst über die Selbstbedienungs-Grenze hinaus
 
 export default function PriceCalculator() {
   const [employees, setEmployees] = useState(100);
@@ -25,6 +27,7 @@ export default function PriceCalculator() {
   const [checkoutHint, setCheckoutHint] = useState<string | null>(null);
 
   const isEnterprise = employees > MAX_SELF_SERVICE_EMPLOYEES;
+  const belowMinOrder = employees < MIN_ORDER_EMPLOYEES;
   const band = useMemo(() => bandFor(employees), [employees]);
   const yearly = useMemo(() => totalYearly(employees), [employees]);
 
@@ -39,9 +42,13 @@ export default function PriceCalculator() {
     if (!businessTier?.paddlePriceId) return;
     setPending(true);
     setCheckoutHint(null);
-    // Menge = Mitarbeiterzahl; das Paddle-Produkt muss als Stückpreis
-    // pro Mitarbeiter:in angelegt sein (Staffel ggf. über Paddle-Preise lösen).
-    const opened = await openCheckout(businessTier.paddlePriceId, employees);
+    // Menge = abgerechnete Mitarbeiterzahl (mind. Mindestbestellmenge);
+    // das Paddle-Produkt muss als Stückpreis pro Mitarbeiter:in angelegt
+    // sein (Staffel ggf. über Paddle-Preise lösen).
+    const opened = await openCheckout(
+      businessTier.paddlePriceId,
+      billableEmployees(employees),
+    );
     if (!opened) {
       setCheckoutHint(
         "Der Checkout ist gerade nicht verfügbar. Bitte schreiben Sie uns: " +
@@ -116,9 +123,17 @@ export default function PriceCalculator() {
               </div>
             </div>
 
+            {belowMinOrder && (
+              <p className="mt-4 text-center text-sm font-medium text-brand-700">
+                Mindestbestellmenge: {MIN_ORDER_EMPLOYEES} Nutzer:innen – der
+                Preis wird für {MIN_ORDER_EMPLOYEES} berechnet.
+              </p>
+            )}
+
             <p className="mt-4 text-center text-xs text-steel">
-              Business-Tier · Abrechnung jährlich über Paddle · Preise zzgl. USt.,
-              Paddle weist die korrekte Steuer im Checkout aus
+              Business-Tier · Abrechnung jährlich über Paddle · Mindestbestellmenge{" "}
+              {MIN_ORDER_EMPLOYEES} Nutzer:innen · Preise zzgl. USt., Paddle weist
+              die korrekte Steuer im Checkout aus
             </p>
 
             <div className="mt-6 text-center">
