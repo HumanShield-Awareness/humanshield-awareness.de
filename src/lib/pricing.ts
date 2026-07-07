@@ -11,8 +11,8 @@
  */
 
 export const GITHUB_ORG_URL = "https://github.com/securebitsorg";
-/** TODO: Auf das GitHub-Hauptrepository der HumanShield-Software zeigen lassen */
-export const GITHUB_REPO_URL = "https://github.com/securebitsorg";
+/** GitHub-Hauptrepository der HumanShield-Software */
+export const GITHUB_REPO_URL = "https://github.com/securebitsorg/HumanShield.APP";
 
 /** Kontakt für Enterprise-Anfragen */
 export const SALES_EMAIL = "support@secure-bits.org";
