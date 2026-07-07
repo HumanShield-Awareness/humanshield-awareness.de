@@ -1,10 +1,8 @@
 {
-  // Cloudflare-Worker-Konfiguration: statische Auslieferung des Astro-Builds.
-  // Kein eigener Worker-Code ("main") – nur Static Assets aus dist/.
+  // Cloudflare-Pages-Konfiguration: statisches Build-Output-Verzeichnis.
+  // Deploy läuft über das Pages-Projekt (Git-Integration), diese Datei
+  // hält die Config im Repo konsistent und erlaubt `wrangler pages deploy`.
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "humanshield-awareness",
-  "compatibility_date": "2026-07-07",
-  "assets": {
-    "directory": "./dist"
-  }
+  "name": "humanshield-awareness-de",
+  "pages_build_output_dir": "./dist"
 }
