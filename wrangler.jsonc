@@ -1,0 +1,10 @@
+{
+  // Cloudflare-Worker-Konfiguration: statische Auslieferung des Astro-Builds.
+  // Kein eigener Worker-Code ("main") – nur Static Assets aus dist/.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "humanshield-awareness",
+  "compatibility_date": "2026-07-07",
+  "assets": {
+    "directory": "./dist"
+  }
+}
