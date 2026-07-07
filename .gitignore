@@ -1,0 +1,47 @@
+# --- Secrets & Keys (NIEMALS committen) ---
+.env
+.env.*
+!.env.example
+*.pem
+keys/
+license-server/keys/
+
+# --- Python / Lizenzserver ---
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+alembic.ini.local
+
+# --- Lokale DB-Dateien / Dumps ---
+*.sql
+*.dump
+*.sqlite3
+*.db
+licenses.db
+
+# --- Node / Frontend (Astro) ---
+node_modules/
+dist/
+.astro/
+.cache/
+
+# --- Cloudflare ---
+.wrangler/
+
+# --- Editor / OS ---
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# --- Logs ---
+*.log
+logs/
+
+# --- Claude Code lokale Artefakte ---
+.claude/
