@@ -3,7 +3,8 @@
  *
  * Rein clientseitige Berechnung (CLAUDE.md) – keine Backend-Anbindung.
  * Es gibt ausschließlich Jahrespreise, gestaffelt nach Mitarbeiterzahl.
- * Preislogik/Staffelung kommt zentral aus src/lib/pricing.ts (PLATZHALTER).
+ * Preislogik/Staffelung kommt zentral aus src/lib/pricing.ts (PLATZHALTER),
+ * feste Texte aus src/i18n/ui.ts.
  */
 import { useMemo, useState } from "react";
 import {
@@ -16,12 +17,16 @@ import {
   tiers,
   totalYearly,
 } from "../../lib/pricing";
+import { ui, type Lang } from "../../i18n/ui";
+import { format, intlLocale } from "../../i18n/utils";
 import { openCheckout } from "../../lib/paddle";
 
 const MIN = 1;
 const MAX = 3000; // Slider bewusst über die Selbstbedienungs-Grenze hinaus
 
-export default function PriceCalculator() {
+export default function PriceCalculator({ lang }: { lang: Lang }) {
+  const t = ui[lang];
+  const locale = intlLocale(lang);
   const [employees, setEmployees] = useState(100);
   const [pending, setPending] = useState(false);
   const [checkoutHint, setCheckoutHint] = useState<string | null>(null);
@@ -50,10 +55,7 @@ export default function PriceCalculator() {
       billableEmployees(employees),
     );
     if (!opened) {
-      setCheckoutHint(
-        "Der Checkout ist gerade nicht verfügbar. Bitte schreiben Sie uns: " +
-          SALES_EMAIL,
-      );
+      setCheckoutHint(t.checkoutUnavailable + SALES_EMAIL);
     }
     setPending(false);
   }
@@ -62,7 +64,7 @@ export default function PriceCalculator() {
     <div className="mx-auto max-w-3xl rounded-3xl border border-gray-200 bg-white p-8 shadow-lg sm:p-10">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <label htmlFor="employees" className="text-sm font-semibold text-gray-900">
-          Wie viele Mitarbeitende hat Ihr Unternehmen?
+          {t.calcLabel}
         </label>
         <input
           id="employees"
@@ -81,59 +83,64 @@ export default function PriceCalculator() {
         max={MAX}
         value={employees}
         onChange={(e) => setEmployees(clamp(e.target.valueAsNumber))}
-        aria-label="Mitarbeiterzahl wählen"
+        aria-label={t.calcSliderAria}
         className="mt-6 w-full accent-brand-500"
       />
       <div className="mt-1 flex justify-between text-xs text-steel">
         <span>{MIN}</span>
-        <span>{MAX.toLocaleString("de-DE")}+</span>
+        <span>{MAX.toLocaleString(locale)}+</span>
       </div>
 
       <div className="mt-8 rounded-2xl bg-gray-50 p-6">
         {isEnterprise ? (
           <div className="text-center">
             <p className="text-lg font-semibold text-gray-900">
-              Ab {(MAX_SELF_SERVICE_EMPLOYEES + 1).toLocaleString("de-DE")}{" "}
-              Mitarbeitenden erstellen wir Ihnen gern ein individuelles
-              Enterprise-Angebot.
+              {format(t.calcEnterpriseLead, {
+                n: (MAX_SELF_SERVICE_EMPLOYEES + 1).toLocaleString(locale),
+              })}
             </p>
             <a
-              href={`mailto:${SALES_EMAIL}?subject=HumanShield%20Enterprise%20(${employees}%20Mitarbeitende)`}
+              href={`mailto:${SALES_EMAIL}?subject=${encodeURIComponent(
+                format(t.calcEnterpriseSubject, { n: employees }),
+              )}`}
               className="mt-6 inline-block rounded-full bg-gray-900 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-700"
             >
-              Enterprise-Angebot anfragen
+              {t.calcEnterpriseCta}
             </a>
           </div>
         ) : (
           <>
             <div className="grid gap-6 text-center sm:grid-cols-2">
               <div>
-                <p className="text-sm text-steel">Preis pro Mitarbeiter:in</p>
+                <p className="text-sm text-steel">{t.calcPricePerEmployee}</p>
                 <p className="mt-1 text-2xl font-extrabold text-gray-900">
-                  {formatEuro(band.pricePerEmployeeYearly ?? 0)}
-                  <span className="text-sm font-medium text-steel"> /Jahr</span>
+                  {formatEuro(band.pricePerEmployeeYearly ?? 0, locale)}
+                  <span className="text-sm font-medium text-steel">
+                    {" "}
+                    {t.calcPerYear}
+                  </span>
                 </p>
               </div>
               <div>
-                <p className="text-sm text-steel">Jahresabo gesamt</p>
+                <p className="text-sm text-steel">{t.calcYearlyTotal}</p>
                 <p className="mt-1 text-2xl font-extrabold text-brand-500">
-                  {yearly !== null ? formatEuro(yearly) : "–"}
-                  <span className="text-sm font-medium text-steel"> /Jahr</span>
+                  {yearly !== null ? formatEuro(yearly, locale) : "–"}
+                  <span className="text-sm font-medium text-steel">
+                    {" "}
+                    {t.calcPerYear}
+                  </span>
                 </p>
               </div>
             </div>
 
             {belowMinOrder && (
               <p className="mt-4 text-center text-sm font-medium text-brand-700">
-                Mindestbestellmenge: {MIN_ORDER_EMPLOYEES} Nutzer:innen – der
-                Preis wird für {MIN_ORDER_EMPLOYEES} berechnet.
+                {format(t.calcBelowMin, { min: MIN_ORDER_EMPLOYEES })}
               </p>
             )}
 
             <p className="mt-4 text-center text-xs text-steel">
-              Business-Tier · Abrechnung jährlich über Paddle · Mindestbestellmenge{" "}
-              {MIN_ORDER_EMPLOYEES} Nutzer:innen · Preise zzgl. USt., Paddle weist
-              die korrekte Steuer im Checkout aus
+              {format(t.calcDisclaimer, { min: MIN_ORDER_EMPLOYEES })}
             </p>
 
             <div className="mt-6 text-center">
@@ -144,8 +151,10 @@ export default function PriceCalculator() {
                 className="rounded-full bg-brand-500 px-8 py-3 text-sm font-semibold text-white shadow-md shadow-brand-500/25 transition-all hover:bg-brand-600 disabled:opacity-60"
               >
                 {pending
-                  ? "Checkout wird geöffnet …"
-                  : `Jahresabo für ${employees.toLocaleString("de-DE")} Mitarbeitende starten`}
+                  ? t.checkoutOpening
+                  : format(t.calcCheckoutBtn, {
+                      n: employees.toLocaleString(locale),
+                    })}
               </button>
               {checkoutHint && (
                 <p className="mt-4 text-sm font-medium text-brand-700">

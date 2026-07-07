@@ -1,31 +1,37 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import PricingTiers from "../components/react/PricingTiers";
-import PriceCalculator from "../components/react/PriceCalculator";
-import { SALES_EMAIL } from "../lib/pricing";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PricingTiers from "../../components/react/PricingTiers";
+import PriceCalculator from "../../components/react/PriceCalculator";
+import { SALES_EMAIL } from "../../lib/pricing";
+import { useTranslations } from "../../i18n/utils";
+import { type Lang } from "../../i18n/ui";
 
-/* Texte kommen aus src/content/ (Markdown) – siehe src/content.config.ts */
-const intro = await getEntry("texte", "preise");
-const rechner = await getEntry("texte", "preisrechner");
-const faqIntro = await getEntry("texte", "faq");
+export function getStaticPaths() {
+  return [{ params: { lang: "de" } }, { params: { lang: "en" } }];
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+
+/* Texte kommen aus src/content/<collection>/<lang>/ (Markdown) */
+const intro = await getEntry("texte", `${lang}/preise`);
+const rechner = await getEntry("texte", `${lang}/preisrechner`);
+const faqIntro = await getEntry("texte", `${lang}/faq`);
 if (!intro || !rechner || !faqIntro) {
-  throw new Error("Fehlender Eintrag in src/content/texte/");
+  throw new Error(`Fehlender Eintrag in src/content/texte/${lang}/`);
 }
 
 const { Content: IntroText } = await render(intro);
 const { Content: RechnerText } = await render(rechner);
 
-const faq = (await getCollection("faq")).sort(
-  (a, b) => a.data.order - b.data.order,
-);
+const faq = (await getCollection("faq"))
+  .filter((e) => e.id.startsWith(`${lang}/`))
+  .sort((a, b) => a.data.order - b.data.order);
 const faqContents = await Promise.all(faq.map((f) => render(f)));
 ---
 
-<BaseLayout
-  title="Preise – HumanShield Awareness"
-  description="Transparente Preise für HumanShield Awareness: kostenlose Community-Edition, Business-Jahresabo gestaffelt nach Mitarbeiterzahl und individuelle Enterprise-Angebote."
->
+<BaseLayout lang={lang} title={t("metaPricingTitle")} description={t("metaPricingDesc")}>
   <!-- ===== Preisübersicht ===== -->
   <section class="relative overflow-hidden py-20 sm:py-24">
     <div
@@ -45,7 +51,7 @@ const faqContents = await Promise.all(faq.map((f) => render(f)));
       </div>
 
       <div class="mt-12">
-        <PricingTiers client:visible />
+        <PricingTiers client:visible lang={lang} />
       </div>
     </div>
   </section>
@@ -63,7 +69,7 @@ const faqContents = await Promise.all(faq.map((f) => render(f)));
       </div>
 
       <div class="mt-12">
-        <PriceCalculator client:visible />
+        <PriceCalculator client:visible lang={lang} />
       </div>
     </div>
   </section>
@@ -104,7 +110,7 @@ const faqContents = await Promise.all(faq.map((f) => render(f)));
       </div>
 
       <p class="mt-10 text-center text-sm text-steel">
-        Noch Fragen? Schreiben Sie uns an{" "}
+        {t("faqStillQuestions")}{" "}
         <a href={`mailto:${SALES_EMAIL}`} class="font-medium text-brand-600 hover:underline">
           {SALES_EMAIL}
         </a>

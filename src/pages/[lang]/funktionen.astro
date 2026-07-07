@@ -1,23 +1,29 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { GITHUB_REPO_URL } from "../lib/pricing";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { GITHUB_REPO_URL } from "../../lib/pricing";
+import { useTranslations, localizedPath } from "../../i18n/utils";
+import { type Lang } from "../../i18n/ui";
 
-/* Texte kommen aus src/content/ (Markdown) – siehe src/content.config.ts */
-const intro = await getEntry("texte", "addons");
-if (!intro) throw new Error("src/content/texte/addons.md fehlt");
+export function getStaticPaths() {
+  return [{ params: { lang: "de" } }, { params: { lang: "en" } }];
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+
+/* Texte kommen aus src/content/<collection>/<lang>/ (Markdown) */
+const intro = await getEntry("texte", `${lang}/addons`);
+if (!intro) throw new Error(`src/content/texte/${lang}/addons.md fehlt`);
 const { Content: IntroText } = await render(intro);
 
-const addons = (await getCollection("addons")).sort(
-  (a, b) => a.data.order - b.data.order,
-);
+const addons = (await getCollection("addons"))
+  .filter((e) => e.id.startsWith(`${lang}/`))
+  .sort((a, b) => a.data.order - b.data.order);
 const addonContents = await Promise.all(addons.map((a) => render(a)));
 ---
 
-<BaseLayout
-  title="Funktionen – HumanShield Awareness"
-  description="Alle Funktionen von HumanShield Awareness im Überblick: Was die kostenlose Core-Version, das Business-Add-on und das Enterprise-Add-on freischalten."
->
+<BaseLayout lang={lang} title={t("metaFeaturesTitle")} description={t("metaFeaturesDesc")}>
   <!-- ===== Hero ===== -->
   <section class="relative overflow-hidden py-20 sm:py-24">
     <div
@@ -39,15 +45,15 @@ const addonContents = await Promise.all(addons.map((a) => render(a)));
       <!-- Stufen-Übersicht: Core → Business → Enterprise -->
       <div class="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-3 text-sm font-medium">
         <span class="rounded-full border border-gray-300 bg-white px-4 py-2 text-gray-700">
-          Core – kostenlos
+          {t("funcTierCore")}
         </span>
         <span class="text-brand-400" aria-hidden="true">→</span>
         <span class="rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-brand-700">
-          + Business
+          {t("funcTierBusiness")}
         </span>
         <span class="text-brand-400" aria-hidden="true">→</span>
         <span class="rounded-full border border-gray-300 bg-white px-4 py-2 text-gray-700">
-          + Enterprise
+          {t("funcTierEnterprise")}
         </span>
       </div>
     </div>
@@ -125,18 +131,17 @@ const addonContents = await Promise.all(addons.map((a) => render(a)));
         >
         </div>
         <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Bereit für den vollen Funktionsumfang?
+          {t("funcCtaTitle")}
         </h2>
         <p class="mx-auto mt-4 max-w-xl text-lg text-brand-100">
-          Berechnen Sie Ihren Preis oder starten Sie kostenlos mit der
-          Core-Version.
+          {t("funcCtaText")}
         </p>
         <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href="/preise#preisrechner"
+            href={localizedPath(lang, "/preise#preisrechner")}
             class="w-full rounded-full bg-white px-8 py-3.5 text-base font-semibold text-brand-600 transition-colors hover:bg-brand-50 sm:w-auto"
           >
-            Preis berechnen
+            {t("funcCtaPrimary")}
           </a>
           <a
             href={GITHUB_REPO_URL}
@@ -144,7 +149,7 @@ const addonContents = await Promise.all(addons.map((a) => render(a)));
             rel="noopener noreferrer"
             class="w-full rounded-full border border-white/40 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"
           >
-            Core kostenlos starten
+            {t("funcCtaSecondary")}
           </a>
         </div>
       </div>

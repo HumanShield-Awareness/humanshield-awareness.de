@@ -74,8 +74,13 @@ export function cheapestYearlyPerEmployee(): number {
     .sort((a, b) => a - b)[0];
 }
 
-export function formatEuro(value: number): string {
-  return new Intl.NumberFormat("de-DE", {
+/**
+ * Währungsformat. `locale` steuert Tausendertrennung/Format (Default de-DE);
+ * die Währung bleibt immer EUR. Sprachabhängige Locale kommt aus
+ * src/i18n/utils.ts → intlLocale(lang).
+ */
+export function formatEuro(value: number, locale = "de-DE"): string {
+  return new Intl.NumberFormat(locale, {
     style: "currency",
     currency: "EUR",
     minimumFractionDigits: value % 1 === 0 ? 0 : 2,
@@ -84,9 +89,6 @@ export function formatEuro(value: number): string {
 
 export interface Tier {
   id: "community" | "business" | "enterprise";
-  name: string;
-  tagline: string;
-  features: string[];
   highlighted: boolean;
   /**
    * Paddle-Preis-ID des Jahresabos – PLATZHALTER, im Paddle-Dashboard
@@ -95,44 +97,22 @@ export interface Tier {
   paddlePriceId?: string;
 }
 
+/**
+ * Struktur & Kauf-Metadaten der Tiers. Die angezeigten Texte (Name, Tagline,
+ * Feature-Liste) sind lokalisiert und liegen in src/i18n/ui.ts → tierText.
+ */
 export const tiers: Tier[] = [
   {
     id: "community",
-    name: "Community",
-    tagline: "Open Core – selbst hosten, frei nutzen",
-    features: [
-      "Kernfunktionen als Open Source",
-      "Self-Hosting auf eigener Infrastruktur",
-      "Community-Support über GitHub",
-      "Ideal zum Ausprobieren und für kleine Teams",
-    ],
     highlighted: false,
   },
   {
     id: "business",
-    name: "Business",
-    tagline: "Für Unternehmen bis 2.500 Mitarbeitende",
-    features: [
-      "Alle Community-Funktionen",
-      "Erweiterte Phishing-Simulationen & Kampagnen",
-      "Reporting und Auswertungen",
-      "Lizenz per E-Mail, offline validierbar",
-      "E-Mail-Support",
-    ],
     highlighted: true,
     paddlePriceId: "pri_PLATZHALTER_BUSINESS_JAHRESABO",
   },
   {
     id: "enterprise",
-    name: "Enterprise",
-    tagline: "Für große Organisationen ab 2.500 Mitarbeitenden",
-    features: [
-      "Alle Business-Funktionen",
-      "Individuelle Staffelpreise",
-      "Onboarding-Unterstützung",
-      "Prioritäts-Support",
-      "Individuelle Vertragsgestaltung",
-    ],
     highlighted: false,
   },
 ];

@@ -1,27 +1,40 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { useTranslations, switchLangPath } from "../i18n/utils";
+import { defaultLang, type Lang } from "../i18n/ui";
 import "../styles/global.css";
 
 interface Props {
   title: string;
+  lang: Lang;
   description?: string;
 }
 
-const {
-  title,
-  description = "HumanShield Awareness – Security-Awareness-Trainings und Phishing-Simulationen, die Ihre Mitarbeitenden zur stärksten Verteidigungslinie machen. Entwickelt in Deutschland, DSGVO-konform und NIS2-ready.",
-} = Astro.props;
+const { title, lang, description } = Astro.props;
+const t = useTranslations(lang);
+const metaDescription = description ?? t("metaDefaultDesc");
+
+// hreflang-Alternates: gleiche Seite in beiden Sprachen
+const dePath = switchLangPath(Astro.url, "de");
+const enPath = switchLangPath(Astro.url, "en");
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" hreflang="de" href={new URL(dePath, Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL(enPath, Astro.site)} />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(switchLangPath(Astro.url, defaultLang), Astro.site)}
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,11 +44,11 @@ const {
     <title>{title}</title>
   </head>
   <body class="flex min-h-screen flex-col">
-    <Header />
+    <Header lang={lang} />
     <main class="flex-1">
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
 
     <!-- Minimales globales JS: nur Scroll-Reveal per IntersectionObserver -->
     <script>
