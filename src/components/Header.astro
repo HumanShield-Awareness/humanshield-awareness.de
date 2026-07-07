@@ -1,0 +1,125 @@
+---
+import { GITHUB_REPO_URL } from "../lib/pricing";
+
+const nav = [
+  { label: "Funktionen", href: "/#funktionen" },
+  { label: "So funktioniert's", href: "/#so-funktionierts" },
+  { label: "Preise", href: "/preise" },
+  { label: "Preisrechner", href: "/preise#preisrechner" },
+];
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-lg"
+>
+  <div
+    class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6"
+  >
+    <a href="/" class="flex items-center gap-2 font-bold text-gray-900">
+      <span
+        class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-500 text-white"
+      >
+        <!-- Schild-Icon -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="h-5 w-5"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12 2.25c.223 0 .445.043.652.127l6.75 2.7a1.125 1.125 0 0 1 .698 1.043v5.13c0 4.661-2.905 8.585-7.17 10.264a1.125 1.125 0 0 1-.86 0C7.155 19.84 4.25 15.915 4.25 11.25V6.12c0-.46.28-.874.698-1.043l6.75-2.7c.207-.084.43-.127.652-.127Z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </span>
+      <span class="text-lg">HumanShield<span class="text-brand-500">.</span></span>
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Hauptnavigation">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class="text-sm font-medium text-steel transition-colors hover:text-gray-900"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="hidden items-center gap-3 md:flex">
+      <a
+        href={GITHUB_REPO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm font-medium text-steel transition-colors hover:text-gray-900"
+      >
+        GitHub
+      </a>
+      <a
+        href="/preise"
+        class="rounded-full bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-brand-600 hover:shadow-md"
+      >
+        Jetzt starten
+      </a>
+    </div>
+
+    <!-- Mobile: Burger -->
+    <button
+      id="menu-toggle"
+      type="button"
+      class="flex h-10 w-10 items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 md:hidden"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.8"
+        stroke="currentColor"
+        class="h-6 w-6"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile-Menü -->
+  <div id="mobile-menu" class="hidden border-t border-gray-100 bg-white md:hidden">
+    <nav class="flex flex-col gap-1 px-4 py-3" aria-label="Mobile Navigation">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class="rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a
+        href="/preise"
+        class="mt-2 rounded-full bg-brand-500 px-4 py-2 text-center text-sm font-semibold text-white"
+      >
+        Jetzt starten
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.classList.toggle("hidden") === false;
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+</script>

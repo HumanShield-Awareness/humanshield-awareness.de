@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/*
+ * Design-Tokens – angelehnt an netbird.io (hell, klar, Orange-Akzent),
+ * aber eigenständig. Markenfarben aus CLAUDE.md:
+ *   Orange #ff570a, Grau #6B7281
+ */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Markenorange als Skala rund um #ff570a */
+  --color-brand-50: #fff4ed;
+  --color-brand-100: #ffe7d4;
+  --color-brand-200: #ffcba8;
+  --color-brand-300: #ffa670;
+  --color-brand-400: #ff7737;
+  --color-brand-500: #ff570a;
+  --color-brand-600: #e64a05;
+  --color-brand-700: #bf3a06;
+  --color-brand-800: #982f0c;
+  --color-brand-900: #7a2a0d;
+
+  /* Sekundärgrau aus CLAUDE.md */
+  --color-steel: #6b7281;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-gray-900 antialiased;
+}
+
+/* ---------- Scroll-Reveal-Animationen (IntersectionObserver im Layout) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Gestaffelte Verzögerung für Karten-Grids */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
