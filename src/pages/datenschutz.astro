@@ -1,23 +1,20 @@
 ---
+import { getEntry, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+/* Inhalt aus src/content/seiten/datenschutz.md */
+const seite = await getEntry("seiten", "datenschutz");
+if (!seite) throw new Error("src/content/seiten/datenschutz.md fehlt");
+const { Content } = await render(seite);
 ---
 
-<BaseLayout title="Datenschutzerklärung – HumanShield Awareness">
+<BaseLayout title={`${seite.data.title} – HumanShield Awareness`}>
   <section class="mx-auto max-w-3xl px-4 py-20 sm:px-6">
     <h1 class="text-3xl font-bold tracking-tight text-gray-900">
-      Datenschutzerklärung
+      {seite.data.title}
     </h1>
-    <div class="prose mt-8 text-steel">
-      <!--
-        TODO: Vollständige Datenschutzerklärung ergänzen. Mindestens abdecken:
-        - Hosting über Cloudflare Pages (Cloudflare, Inc.)
-        - Zahlungsabwicklung über Paddle (Paddle.com Market Ltd., Merchant of Record)
-        - Einbindung von Google Fonts (oder auf Self-Hosting umstellen)
-      -->
-      <p>
-        Diese Seite befindet sich im Aufbau. Die vollständige
-        Datenschutzerklärung wird vor Live-Schaltung ergänzt.
-      </p>
+    <div class="prose prose-gray mt-8">
+      <Content />
     </div>
   </section>
 </BaseLayout>
