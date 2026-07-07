@@ -6,6 +6,7 @@
  * Struktur:
  *   texte/     – Hero, Sektions-Überschriften, CTA-Banner (Frontmatter + Body)
  *   features/  – eine Datei pro Feature-Karte der Startseite
+ *   vertrauen/ – Karten der Compliance-Sektion (Made in Germany, DSGVO, NIS2)
  *   steps/     – eine Datei pro „So funktioniert's“-Schritt
  *   faq/       – eine Datei pro FAQ-Eintrag der Preisseite
  *   seiten/    – ganze Fließtext-Seiten (Impressum, Datenschutz)
@@ -43,6 +44,16 @@ const features = defineCollection({
   }),
 });
 
+const vertrauen = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/vertrauen" }),
+  schema: z.object({
+    title: z.string(),
+    /** Icon-Name, siehe Icon-Map in src/pages/index.astro */
+    icon: z.enum(["map-pin", "shield-check", "document-check"]),
+    order: z.number(),
+  }),
+});
+
 const steps = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/steps" }),
   schema: z.object({
@@ -66,4 +77,4 @@ const seiten = defineCollection({
   }),
 });
 
-export const collections = { texte, features, steps, faq, seiten };
+export const collections = { texte, features, vertrauen, steps, faq, seiten };
