@@ -4,7 +4,7 @@ title: Security Awareness, die Ihr Team
 titleHighlight: wirklich schützt
 ctaPrimary: Preise ansehen
 ctaSecondary: Auf GitHub ansehen
-note: Jahresabo über Paddle · Rechnung & VAT inklusive · kein Kundenkonto nötig
+note: Entwickelt & vertrieben in Deutschland · DSGVO-konform · NIS2-ready
 ---
 
 HumanShield macht Ihre Mitarbeitenden zur stärksten Verteidigungslinie:
