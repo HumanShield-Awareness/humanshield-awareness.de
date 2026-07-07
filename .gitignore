@@ -46,3 +46,4 @@ logs/
 # --- Claude Code lokale Artefakte ---
 .claude/
 CLAUDE.MD
+/docs
