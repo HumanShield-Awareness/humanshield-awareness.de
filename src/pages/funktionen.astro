@@ -1,0 +1,153 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { GITHUB_REPO_URL } from "../lib/pricing";
+
+/* Texte kommen aus src/content/ (Markdown) – siehe src/content.config.ts */
+const intro = await getEntry("texte", "addons");
+if (!intro) throw new Error("src/content/texte/addons.md fehlt");
+const { Content: IntroText } = await render(intro);
+
+const addons = (await getCollection("addons")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const addonContents = await Promise.all(addons.map((a) => render(a)));
+---
+
+<BaseLayout
+  title="Funktionen – HumanShield Awareness"
+  description="Alle Funktionen von HumanShield Awareness im Überblick: Was die kostenlose Core-Version, das Business-Add-on und das Enterprise-Add-on freischalten."
+>
+  <!-- ===== Hero ===== -->
+  <section class="relative overflow-hidden py-20 sm:py-24">
+    <div
+      class="pointer-events-none absolute -top-40 left-1/2 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-brand-100/50 blur-3xl"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+          {intro.data.title}
+        </h1>
+        <div class="mt-4 text-lg text-steel">
+          <IntroText />
+        </div>
+      </div>
+
+      <!-- Stufen-Übersicht: Core → Business → Enterprise -->
+      <div class="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-3 text-sm font-medium">
+        <span class="rounded-full border border-gray-300 bg-white px-4 py-2 text-gray-700">
+          Core – kostenlos
+        </span>
+        <span class="text-brand-400" aria-hidden="true">→</span>
+        <span class="rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-brand-700">
+          + Business
+        </span>
+        <span class="text-brand-400" aria-hidden="true">→</span>
+        <span class="rounded-full border border-gray-300 bg-white px-4 py-2 text-gray-700">
+          + Enterprise
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Add-on-Sektionen ===== -->
+  {
+    addons.map((addon, i) => {
+      const AddonIntro = addonContents[i].Content;
+      return (
+        <section class={i % 2 === 1 ? "bg-gray-50 py-20 sm:py-24" : "py-16 sm:py-20"}>
+          <div class="mx-auto max-w-6xl px-4 sm:px-6">
+            <div class="reveal mx-auto max-w-2xl text-center">
+              <span
+                class={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-semibold ${
+                  addon.data.highlighted
+                    ? "bg-brand-500 text-white"
+                    : "border border-gray-300 bg-white text-gray-800"
+                }`}
+              >
+                {addon.data.name}
+              </span>
+              <h2 class="mt-5 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                {addon.data.tagline}
+              </h2>
+              <div class="mt-4 text-lg text-steel">
+                <AddonIntro />
+              </div>
+            </div>
+
+            <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {addon.data.groups.map((group, g) => (
+                <div
+                  class={`reveal reveal-delay-${(g % 3) + 1} rounded-2xl border border-gray-100 bg-white p-6 shadow-sm`}
+                >
+                  <h3 class="text-lg font-semibold text-gray-900">{group.title}</h3>
+                  <ul class="mt-4 space-y-2.5">
+                    {group.features.map((feature) => (
+                      <li class="flex items-start gap-3 text-sm text-gray-700">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          class="mt-0.5 h-5 w-5 shrink-0 text-brand-500"
+                          aria-hidden="true"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    })
+  }
+
+  <!-- ===== CTA ===== -->
+  <section class="py-20 sm:py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div
+        class="reveal relative overflow-hidden rounded-3xl bg-brand-500 px-6 py-16 text-center sm:px-16"
+      >
+        <div
+          class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-2xl"
+          aria-hidden="true"
+        >
+        </div>
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Bereit für den vollen Funktionsumfang?
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-brand-100">
+          Berechnen Sie Ihren Preis oder starten Sie kostenlos mit der
+          Core-Version.
+        </p>
+        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="/preise#preisrechner"
+            class="w-full rounded-full bg-white px-8 py-3.5 text-base font-semibold text-brand-600 transition-colors hover:bg-brand-50 sm:w-auto"
+          >
+            Preis berechnen
+          </a>
+          <a
+            href={GITHUB_REPO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full rounded-full border border-white/40 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"
+          >
+            Core kostenlos starten
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

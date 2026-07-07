@@ -8,6 +8,7 @@
  *   features/  – eine Datei pro Feature-Karte der Startseite
  *   vertrauen/ – Karten der Compliance-Sektion (Made in Germany, DSGVO, NIS2)
  *   steps/     – eine Datei pro „So funktioniert's“-Schritt
+ *   addons/    – Funktionsumfang je Add-on (Business, Enterprise), gruppiert
  *   faq/       – eine Datei pro FAQ-Eintrag der Preisseite
  *   seiten/    – ganze Fließtext-Seiten (Impressum, Datenschutz)
  */
@@ -62,6 +63,24 @@ const steps = defineCollection({
   }),
 });
 
+const addons = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/addons" }),
+  schema: z.object({
+    name: z.string(),
+    tagline: z.string(),
+    order: z.number(),
+    /** Optische Hervorhebung auf der Funktionsseite */
+    highlighted: z.boolean().default(false),
+    /** Funktionsgruppen mit ihren Einzel-Features */
+    groups: z.array(
+      z.object({
+        title: z.string(),
+        features: z.array(z.string()),
+      }),
+    ),
+  }),
+});
+
 const faq = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/faq" }),
   schema: z.object({
@@ -77,4 +96,12 @@ const seiten = defineCollection({
   }),
 });
 
-export const collections = { texte, features, vertrauen, steps, faq, seiten };
+export const collections = {
+  texte,
+  features,
+  vertrauen,
+  steps,
+  addons,
+  faq,
+  seiten,
+};
