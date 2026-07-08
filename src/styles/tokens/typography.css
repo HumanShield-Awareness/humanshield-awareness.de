@@ -1,0 +1,42 @@
+/* HumanShield — Typography tokens
+ * Display: Roboto (bold weights — headlines & big numbers)
+ * Body/UI:  Roboto (regular/medium — UI & long-form)
+ * Mono:     Roboto Mono (metrics, code, timestamps, technical labels)
+ * NOTE: fonts are self-hosted (see fonts.css / assets/fonts). Chosen by user.
+ */
+:root {
+  --font-display: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "Roboto Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Weights */
+  --fw-regular:  400; /* @kind font */
+  --fw-medium:   500; /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold:     700; /* @kind font */
+
+  /* Type scale (px) — display uses tight tracking, body normal */
+  --fs-display-2xl: 76px;
+  --fs-display-xl:  60px;
+  --fs-display-lg:  46px;
+  --fs-h1:          34px;
+  --fs-h2:          27px;
+  --fs-h3:          21px;
+  --fs-lg:          18px;
+  --fs-body:        15px;
+  --fs-sm:          13px;
+  --fs-xs:          11.5px;
+
+  /* Line heights */
+  --lh-tight:   1.04; /* @kind font */
+  --lh-snug:    1.2; /* @kind font */
+  --lh-normal:  1.5; /* @kind font */
+  --lh-relaxed: 1.65; /* @kind font */
+
+  /* Letter spacing */
+  --ls-tighter: -0.03em; /* @kind font */
+  --ls-tight:   -0.015em; /* @kind font */
+  --ls-normal:  0; /* @kind font */
+  --ls-wide:    0.02em; /* @kind font */
+  --ls-caps:    0.14em; /* @kind font */ /* eyebrow / overline all-caps */
+}

@@ -1,29 +1,71 @@
 @import "tailwindcss";
+/* HumanShield Design-System-Tokens (Quelle: Design/tokens/*) */
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/radius.css";
+@import "./tokens/elevation.css";
+@import "./tokens/motion.css";
 @plugin "@tailwindcss/typography";
 
+/* ---------- Self-hosted Fonts (privacy-first, kein Google-Fonts-Request) ---------- */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/roboto.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url("/fonts/roboto-mono.woff2") format("woff2");
+}
+
 /*
- * Design-Tokens – angelehnt an netbird.io (hell, klar, Orange-Akzent),
- * aber eigenständig. Markenfarben aus CLAUDE.md:
- *   Orange #ff570a, Grau #6B7281
+ * Tailwind-Theme auf die Design-Tokens remappen. Bestehende Utility-Klassen
+ * (bg-brand-500, text-steel, text-gray-900, shadow-lg …) ziehen dadurch die
+ * Werte des HumanShield-Design-Systems (Ember-Orange, Roboto, Meridian-Neutrale).
  */
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, "SFMono-Regular", monospace;
 
-  /* Markenorange als Skala rund um #ff570a */
-  --color-brand-50: #fff4ed;
-  --color-brand-100: #ffe7d4;
-  --color-brand-200: #ffcba8;
-  --color-brand-300: #ffa670;
-  --color-brand-400: #ff7737;
-  --color-brand-500: #ff570a;
-  --color-brand-600: #e64a05;
-  --color-brand-700: #bf3a06;
-  --color-brand-800: #982f0c;
-  --color-brand-900: #7a2a0d;
+  /* Marke: Ember-Orange (ersetzt die frühere #ff570a-Skala) */
+  --color-brand-50: #fff3ec;
+  --color-brand-100: #ffe0ce;
+  --color-brand-200: #ffc09c;
+  --color-brand-300: #ff9d63;
+  --color-brand-400: #ff7c3a;
+  --color-brand-500: #f0591f;
+  --color-brand-600: #d6470f;
+  --color-brand-700: #b0380b;
+  --color-brand-800: #822b0b;
+  --color-brand-900: #59200c;
 
-  /* Sekundärgrau aus CLAUDE.md */
-  --color-steel: #6b7281;
+  /* Sekundärtext (früher „steel") → Design text-secondary */
+  --color-steel: #565c66;
+
+  /* Neutrale Skala auf die kühl-neutralen Meridian-Werte mappen */
+  --color-gray-50: #f5f6f8;
+  --color-gray-100: #ecedf1;
+  --color-gray-200: #dee0e6;
+  --color-gray-300: #c2c7d0;
+  --color-gray-400: #8c929e;
+  --color-gray-500: #626873;
+  --color-gray-600: #565c66;
+  --color-gray-700: #3a3f49;
+  --color-gray-800: #24282f;
+  --color-gray-900: #17191f;
+
+  /* Weiche, kühle Schatten (Meridian-Stil) */
+  --shadow-sm: 0 1px 2px rgba(20, 23, 33, 0.06);
+  --shadow-md: 0 4px 16px rgba(20, 23, 33, 0.08);
+  --shadow-lg: 0 16px 40px rgba(20, 23, 33, 0.12);
+  --shadow-xl: 0 28px 70px rgba(20, 23, 33, 0.16);
 }
 
 html {
@@ -31,7 +73,51 @@ html {
 }
 
 body {
-  @apply bg-white text-gray-900 antialiased;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- Design-Helfer-Klassen ---------- */
+
+/* Mono-Overline / Eyebrow – GROSSBUCHSTABEN, weite Laufweite */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  line-height: 1;
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--text-brand);
+  font-weight: var(--fw-medium);
+}
+.eyebrow-muted {
+  color: var(--text-muted);
+}
+
+/* Genau EIN Gradient-Akzentwort pro View (Hero-Headline) */
+.gradient-text {
+  background: var(--gradient-ember);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Enge Display-Laufweite für große Überschriften */
+.tracking-display {
+  letter-spacing: -0.03em;
+}
+
+/* Metrik-/Einheiten-Look (Roboto Mono) */
+.metric {
+  font-family: var(--font-mono);
+}
+
+/* Ember-getönter Icon-Chip (Feature-/Vertrauen-Karten) */
+.icon-chip {
+  background: rgba(240, 89, 31, 0.13);
+  border: 1px solid rgba(240, 89, 31, 0.25);
 }
 
 /* ---------- Scroll-Reveal-Animationen (IntersectionObserver im Layout) ---------- */
@@ -39,8 +125,8 @@ body {
   opacity: 0;
   transform: translateY(24px);
   transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
 }
 
 .reveal.is-visible {

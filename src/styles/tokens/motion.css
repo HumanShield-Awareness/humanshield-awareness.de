@@ -1,0 +1,12 @@
+/* HumanShield — Motion tokens. Calm, confident. Short fades + subtle lifts.
+ * No bounces. Ease-out for entrances, quick ease for state changes.
+ */
+:root {
+  --dur-fast:   120ms; /* @kind other */
+  --dur-base:   200ms; /* @kind other */
+  --dur-slow:   320ms; /* @kind other */
+
+  --ease-out:   cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+}

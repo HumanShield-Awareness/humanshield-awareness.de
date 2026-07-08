@@ -27,19 +27,36 @@ const enPath = switchLangPath(Astro.url, "en");
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={metaDescription} />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#FBFBFC" />
+
+    <!-- Favicons (HumanShield Design-System) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Self-hosted Fonts vorladen (privacy-first, kein externer Request) -->
+    <link
+      rel="preload"
+      href="/fonts/roboto.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/roboto-mono.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
     <link rel="alternate" hreflang="de" href={new URL(dePath, Astro.site)} />
     <link rel="alternate" hreflang="en" href={new URL(enPath, Astro.site)} />
     <link
       rel="alternate"
       hreflang="x-default"
       href={new URL(switchLangPath(Astro.url, defaultLang), Astro.site)}
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
     />
     <title>{title}</title>
   </head>

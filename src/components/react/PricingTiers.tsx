@@ -40,7 +40,7 @@ function TierPrice({ tier, lang }: { tier: Tier; lang: Lang }) {
   if (tier.id === "community") {
     return (
       <div className="mt-6">
-        <span className="text-4xl font-extrabold text-gray-900">
+        <span className="text-4xl font-extrabold tracking-tight text-gray-900">
           {t.priceFree}
         </span>
         <p className="mt-1 text-sm text-steel">{t.priceFreeSub}</p>
@@ -51,7 +51,7 @@ function TierPrice({ tier, lang }: { tier: Tier; lang: Lang }) {
   if (tier.id === "enterprise") {
     return (
       <div className="mt-6">
-        <span className="text-4xl font-extrabold text-gray-900">
+        <span className="text-4xl font-extrabold tracking-tight text-gray-900">
           {t.priceOnRequest}
         </span>
         <p className="mt-1 text-sm text-steel">{t.priceOnRequestSub}</p>

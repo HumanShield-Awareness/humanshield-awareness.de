@@ -1,0 +1,23 @@
+/* HumanShield — Spacing tokens. 4px base grid. */
+:root {
+  --space-0:   0;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-7:   32px;
+  --space-8:   40px;
+  --space-9:   48px;
+  --space-10:  64px;
+  --space-11:  80px;
+  --space-12:  96px;
+  --space-13:  128px;
+
+  /* Layout */
+  --container-max: 1200px; /* @kind spacing */
+  --container-wide: 1360px; /* @kind spacing */
+  --gutter: 24px; /* @kind spacing */
+  --sidebar-w: 264px; /* @kind spacing */
+}

@@ -113,7 +113,7 @@ export default function PriceCalculator({ lang }: { lang: Lang }) {
             <div className="grid gap-6 text-center sm:grid-cols-2">
               <div>
                 <p className="text-sm text-steel">{t.calcPricePerEmployee}</p>
-                <p className="mt-1 text-2xl font-extrabold text-gray-900">
+                <p className="mt-1 text-2xl font-extrabold tracking-tight text-gray-900">
                   {formatEuro(band.pricePerEmployeeYearly ?? 0, locale)}
                   <span className="text-sm font-medium text-steel">
                     {" "}
@@ -123,7 +123,7 @@ export default function PriceCalculator({ lang }: { lang: Lang }) {
               </div>
               <div>
                 <p className="text-sm text-steel">{t.calcYearlyTotal}</p>
-                <p className="mt-1 text-2xl font-extrabold text-brand-500">
+                <p className="mt-1 text-2xl font-extrabold tracking-tight text-brand-500">
                   {yearly !== null ? formatEuro(yearly, locale) : "–"}
                   <span className="text-sm font-medium text-steel">
                     {" "}

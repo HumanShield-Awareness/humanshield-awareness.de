@@ -1,0 +1,157 @@
+/* HumanShield — Color tokens (LIGHT-FIRST)
+ * Clean, airy light UI (Meridian-style): white cards, hairline cool-neutral
+ * borders, soft shadows, near-black text — with the ember brand as the single
+ * accent. Dark mode is preserved as the `.hs-dark` scope at the bottom.
+ * Base values first, semantic aliases below.
+ */
+:root {
+  /* ---- Brand: Ember orange ---- */
+  --ember-50:  #FFF3EC;
+  --ember-100: #FFE0CE;
+  --ember-200: #FFC09C;
+  --ember-300: #FF9D63;
+  --ember-400: #FF7C3A;
+  --ember-500: #F0591F; /* primary brand */
+  --ember-600: #D6470F;
+  --ember-700: #B0380B;
+  --ember-800: #822B0B;
+  --ember-900: #59200C;
+
+  /* Signature brand gradient (deep ember -> warm amber) */
+  --gradient-ember: linear-gradient(103deg, #F0591F 0%, #FF9D4D 100%); /* @kind color */
+  --gradient-ember-soft: linear-gradient(103deg, #F0591F 0%, #FFB86B 100%); /* @kind color */
+
+  /* ---- Cool neutral ink ramp (dark surfaces — used by .hs-dark) ---- */
+  --ink-950: #0C0A09;
+  --ink-900: #14100E;
+  --ink-850: #1A1512;
+  --ink-800: #221B17;
+  --ink-750: #2A211C;
+  --ink-700: #342923;
+  --ink-border: #322822;
+  --ink-border-strong: #453A33;
+
+  /* ---- Neutral greys (cool, near-neutral) ---- */
+  --warm-50:  #F7F8FA;
+  --warm-100: #EDEFF2;
+  --warm-200: #DDE0E6;
+  --warm-300: #C2C7D0;
+  --warm-400: #8C929E;
+  --warm-500: #626873;
+  --warm-600: #3A3F49;
+
+  /* ---- Neutral fills (chips, tracks, tints) ---- */
+  --fill-subtle: #F1F2F5;
+  --fill-strong: #E3E5EA;
+
+  /* ---- Semantic scales (risk & status) — tuned for light ---- */
+  --danger-500:  #E5484D; /* high risk / failed / clicked */
+  --danger-400:  #C7383D;
+  --danger-bg:   #FCEBEC;
+  --warning-500: #E9A23B; /* medium risk / reported late */
+  --warning-400: #9A6410;
+  --warning-bg:  #FBF0DA;
+  --success-500: #2FA271; /* safe / reported / passed */
+  --success-400: #1E7A4F;
+  --success-bg:  #E4F4EC;
+  --info-500:    #3B7DE8; /* neutral info */
+  --info-400:    #2D63C4;
+  --info-bg:     #E9F0FC;
+
+  /* ============ Semantic aliases (LIGHT) ============ */
+  --brand:              var(--ember-500);
+  --brand-hover:        var(--ember-400);
+  --brand-active:       var(--ember-600);
+  --brand-contrast:     #FFFFFF;
+
+  --bg-page:            #FBFBFC;
+  --bg-sunken:          #F5F6F8;
+  --surface-card:       #FFFFFF;
+  --surface-raised:     #FFFFFF;
+  --surface-overlay:    #FFFFFF;
+  --surface-hover:      #F5F6F8;
+
+  --border-subtle:      #ECEDF1;
+  --border-strong:      #DEE0E6;
+  --border-brand:       var(--ember-500);
+
+  --text-primary:       #17191F;
+  --text-secondary:     #565C66;
+  --text-muted:         #868D98;
+  --text-disabled:      #B7BDC6;
+  --text-brand:         var(--ember-600);
+  --text-on-brand:      #FFFFFF;
+
+  --focus-ring:         rgba(240, 89, 31, 0.32);
+
+  /* Elevation — soft, cool, subtle (Meridian-style) */
+  --shadow-sm:   0 1px 2px rgba(20,23,33,0.06);
+  --shadow-md:   0 4px 16px rgba(20,23,33,0.08);
+  --shadow-lg:   0 16px 40px rgba(20,23,33,0.12);
+  --shadow-xl:   0 28px 70px rgba(20,23,33,0.16);
+  --glow-ember:  0 8px 24px rgba(240, 89, 31, 0.26);
+  --glow-ember-sm: 0 3px 12px rgba(240, 89, 31, 0.2);
+  --inset-hairline: inset 0 1px 2px rgba(20,23,33,0.04);
+
+  /* Risk levels */
+  --risk-high:          var(--danger-500);
+  --risk-high-bg:       var(--danger-bg);
+  --risk-medium:        var(--warning-500);
+  --risk-medium-bg:     var(--warning-bg);
+  --risk-low:           var(--success-500);
+  --risk-low-bg:        var(--success-bg);
+}
+
+/* ---- Dark theme scope ----
+ * Apply class "hs-dark" alongside "hs-root" for a warm near-black surface.
+ * Components read the same semantic aliases, so they adapt automatically.
+ */
+.hs-dark {
+  --warm-50:  #FAF7F5;
+  --warm-100: #EFE9E4;
+  --warm-200: #D8CEC7;
+  --warm-300: #B8AEA6;
+  --warm-400: #948A82;
+  --warm-500: #766C64;
+  --warm-600: #574E48;
+
+  --fill-subtle: var(--ink-750);
+  --fill-strong: var(--ink-700);
+
+  --danger-400:  #F16A6E;
+  --danger-bg:   #2A1415;
+  --warning-400: #F3B95C;
+  --warning-bg:  #291F10;
+  --success-500: #3DB47E;
+  --success-400: #58C793;
+  --success-bg:  #10241B;
+  --info-500:    #4C8DF0;
+  --info-400:    #6FA4F4;
+  --info-bg:     #101B2A;
+
+  --bg-page:            var(--ink-950);
+  --bg-sunken:          var(--ink-900);
+  --surface-card:       var(--ink-800);
+  --surface-raised:     var(--ink-750);
+  --surface-overlay:    var(--ink-850);
+  --surface-hover:      #241C18;
+
+  --border-subtle:      var(--ink-border);
+  --border-strong:      var(--ink-border-strong);
+
+  --text-primary:       var(--warm-50);
+  --text-secondary:     var(--warm-300);
+  --text-muted:         var(--warm-400);
+  --text-disabled:      var(--warm-600);
+  --text-brand:         var(--ember-400);
+
+  --focus-ring:         rgba(240, 89, 31, 0.55);
+
+  --shadow-sm:   0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md:   0 6px 20px rgba(0,0,0,0.45);
+  --shadow-lg:   0 18px 48px rgba(0,0,0,0.55);
+  --shadow-xl:   0 32px 80px rgba(0,0,0,0.6);
+  --glow-ember:  0 8px 28px rgba(240, 89, 31, 0.35);
+  --glow-ember-sm: 0 4px 14px rgba(240, 89, 31, 0.3);
+  --inset-hairline: inset 0 1px 0 rgba(255,255,255,0.04);
+}

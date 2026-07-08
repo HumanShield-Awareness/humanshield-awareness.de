@@ -24,25 +24,11 @@ const PADDLE_PORTAL_URL = "#";
       <div>
         <a
           href={localizedPath(lang, "/")}
-          class="flex items-center gap-2 font-bold text-gray-900"
+          class="text-lg font-bold lowercase text-gray-900"
+          style="letter-spacing:-0.04em"
+          aria-label="humanshield."
         >
-          <span
-            class="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-500 text-white"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="h-4 w-4"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M12 2.25c.223 0 .445.043.652.127l6.75 2.7a1.125 1.125 0 0 1 .698 1.043v5.13c0 4.661-2.905 8.585-7.17 10.264a1.125 1.125 0 0 1-.86 0C7.155 19.84 4.25 15.915 4.25 11.25V6.12c0-.46.28-.874.698-1.043l6.75-2.7c.207-.084.43-.127.652-.127Z"
-                clip-rule="evenodd"></path>
-            </svg>
-          </span>
-          HumanShield
+          humanshield<span class="text-brand-500">.</span>
         </a>
         <p class="mt-3 text-sm text-steel">
           {t("footerTagline")}

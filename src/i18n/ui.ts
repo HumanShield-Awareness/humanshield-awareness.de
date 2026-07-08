@@ -46,7 +46,18 @@ export const ui = {
 
     // ── Startseite ───────────────────────────────────────────────────────
     homeSeeAllFeatures: "Alle Funktionen der Add-ons ansehen",
-    madeInGermanyBadge: "🇩🇪 Made in Germany",
+    madeInGermanyBadge: "Made in Germany",
+
+    // ── Mono-Eyebrows (Overlines, werden per CSS in GROSSBUCHSTABEN gesetzt) ─
+    heroEyebrow: "Security Awareness, die wirkt",
+    featuresEyebrow: "Die Plattform",
+    howEyebrow: "So funktioniert's",
+    complianceEyebrow: "Made in Germany",
+    openCoreEyebrow: "Open Core",
+    pricingEyebrow: "Preise",
+    calculatorEyebrow: "Preisrechner",
+    faqEyebrow: "FAQ",
+    featuresPageEyebrow: "Funktionsumfang",
 
     // ── Funktionsseite ───────────────────────────────────────────────────
     funcTierCore: "Core – kostenlos",
@@ -136,7 +147,18 @@ export const ui = {
 
     // ── Home ─────────────────────────────────────────────────────────────
     homeSeeAllFeatures: "See all add-on features",
-    madeInGermanyBadge: "🇩🇪 Made in Germany",
+    madeInGermanyBadge: "Made in Germany",
+
+    // ── Mono eyebrows (overlines, uppercased via CSS) ────────────────────
+    heroEyebrow: "Security awareness, done right",
+    featuresEyebrow: "The platform",
+    howEyebrow: "How it works",
+    complianceEyebrow: "Made in Germany",
+    openCoreEyebrow: "Open core",
+    pricingEyebrow: "Pricing",
+    calculatorEyebrow: "Price calculator",
+    faqEyebrow: "FAQ",
+    featuresPageEyebrow: "Capabilities",
 
     // ── Features page ────────────────────────────────────────────────────
     funcTierCore: "Core – free",
