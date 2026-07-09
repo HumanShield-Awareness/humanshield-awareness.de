@@ -48,6 +48,9 @@ export const ui = {
     homeSeeAllFeatures: "Alle Funktionen der Add-ons ansehen",
     madeInGermanyBadge: "Made in Germany",
 
+    heroImageAlt:
+      "HumanShield Control-Center: Dashboard mit Kampagnen-Übersicht, Risikobewertung und Auswertungen",
+
     // ── Mono-Eyebrows (Overlines, werden per CSS in GROSSBUCHSTABEN gesetzt) ─
     heroEyebrow: "Security Awareness, die wirkt",
     featuresEyebrow: "Die Plattform",
@@ -139,7 +142,7 @@ export const ui = {
     footerGithubOpenCore: "GitHub (Open Core)",
     footerManageBilling: "Manage invoices & subscription",
     footerContact: "Contact",
-    footerImprint: "Legal Notice",
+    footerImprint: "Legal notice",
     footerPrivacy: "Privacy",
     footerRights: "All rights reserved.",
     footerPaddlePrefix: "Payments processed by",
@@ -148,6 +151,9 @@ export const ui = {
     // ── Home ─────────────────────────────────────────────────────────────
     homeSeeAllFeatures: "See all add-on features",
     madeInGermanyBadge: "Made in Germany",
+
+    heroImageAlt:
+      "HumanShield Control Center: dashboard with campaign overview, risk scoring and analytics",
 
     // ── Mono eyebrows (overlines, uppercased via CSS) ────────────────────
     heroEyebrow: "Security awareness, done right",

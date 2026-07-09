@@ -1,5 +1,5 @@
 ---
-title: Legal Notice
+title: Legal notice
 ---
 
 <!--
