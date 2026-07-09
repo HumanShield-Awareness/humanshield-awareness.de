@@ -3,7 +3,7 @@
  * Staffelung und Paddle-Preis-IDs gepflegt werden.
  *
  * Preisstaffel: final (Stand Juli 2026).
- * ⚠️ Die Paddle-Preis-IDs sind noch PLATZHALTER – vor Live-Schaltung die
+ * Achtung: Die Paddle-Preis-IDs sind noch PLATZHALTER – vor Live-Schaltung die
  *    IDs (pri_…) aus dem Paddle-Dashboard eintragen.
  *
  * Modell: Es gibt ausschließlich Jahrespreise (Jahresabo über Paddle),

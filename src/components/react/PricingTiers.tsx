@@ -136,7 +136,7 @@ export default function PricingTiers({ lang }: { lang: Lang }) {
                     href={GITHUB_REPO_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full rounded-full border border-gray-300 py-3 text-center text-sm font-semibold text-gray-800 transition-colors hover:border-gray-400 hover:bg-gray-50"
+                    className="block w-full rounded-full border border-gray-300 py-3 text-center text-sm font-semibold text-gray-800 transition-colors hover:border-brand-500 hover:bg-gray-50"
                   >
                     {t.ctaGithub}
                   </a>

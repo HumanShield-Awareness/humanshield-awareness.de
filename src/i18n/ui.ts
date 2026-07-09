@@ -139,7 +139,7 @@ export const ui = {
     footerGithubOpenCore: "GitHub (Open Core)",
     footerManageBilling: "Manage invoices & subscription",
     footerContact: "Contact",
-    footerImprint: "Legal Notice",
+    footerImprint: "Legal notice",
     footerPrivacy: "Privacy",
     footerRights: "All rights reserved.",
     footerPaddlePrefix: "Payments processed by",
