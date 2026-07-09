@@ -27,7 +27,8 @@ const MAX = 3000; // Slider bewusst über die Selbstbedienungs-Grenze hinaus
 export default function PriceCalculator({ lang }: { lang: Lang }) {
   const t = ui[lang];
   const locale = intlLocale(lang);
-  const [employees, setEmployees] = useState(100);
+  // Startwert = Mindestbestellmenge (kleinste kaufbare Lizenzanzahl)
+  const [employees, setEmployees] = useState(MIN_ORDER_EMPLOYEES);
   const [pending, setPending] = useState(false);
   const [checkoutHint, setCheckoutHint] = useState<string | null>(null);
 
