@@ -143,6 +143,34 @@ const icons: Record<string, string> = {
           <div
             class="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-xl"
           >
+            <!-- Angedeuteter Browser-Rahmen -->
+            <div
+              class="flex items-center gap-2 border-b border-gray-100 bg-gray-50 px-4 py-2.5"
+            >
+              <span class="h-2.5 w-2.5 rounded-full bg-gray-300"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-gray-300"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-gray-300"></span>
+              <span
+                class="ml-2 hidden flex-1 items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-400 sm:flex"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="h-3 w-3"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                  ></path>
+                </svg>
+                <span class="metric">humanshield.app</span>
+              </span>
+            </div>
             <Image
               src={heroShot}
               alt={t("heroImageAlt")}
