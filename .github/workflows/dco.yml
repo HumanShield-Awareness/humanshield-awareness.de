@@ -1,0 +1,38 @@
+# DCO (Developer Certificate of Origin) check.
+# Verifiziert, dass jeder Commit eines Pull Requests eine "Signed-off-by:"-Zeile
+# trägt. Nutzt ausschließlich die offizielle actions/github-script, an einen
+# Commit-SHA gepinnt (v7.1.0) – keine ungeprüfte Fremd-Action.
+name: DCO Check
+
+on: [pull_request]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  dco:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify Signed-off-by on all commits
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pull_number = context.payload.pull_request.number;
+            const commits = await github.paginate(github.rest.pulls.listCommits, {
+              owner, repo, pull_number, per_page: 100,
+            });
+            const signOff = /^Signed-off-by: .+ <.+@.+>$/m;
+            const unsigned = commits.filter((c) => !signOff.test(c.commit.message));
+            if (unsigned.length > 0) {
+              const list = unsigned
+                .map((c) => `- ${c.sha.slice(0, 7)} ${c.commit.message.split("\n")[0]}`)
+                .join("\n");
+              core.setFailed(
+                `Folgende Commit(s) haben keine "Signed-off-by:"-Zeile:\n${list}\n\n` +
+                  `Sign-off nachtragen: git commit --amend -s  bzw.  git rebase --signoff`,
+              );
+            } else {
+              core.info(`DCO ok – alle ${commits.length} Commit(s) sind signiert.`);
+            }
