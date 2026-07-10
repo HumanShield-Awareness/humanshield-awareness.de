@@ -1,6 +1,6 @@
 ---
 name: Enterprise
-tagline: For large organizations with 2,500+ employees
+tagline: Business plus platform, AI & SSO – as an upgrade (+40%)
 order: 2
 highlighted: false
 groups:
@@ -21,5 +21,6 @@ groups:
       - Custom reports
 ---
 
-The Enterprise add-on includes all Business features – plus the following
-extensions for large organizations.
+The Enterprise add-on is an upgrade to Business – not a standalone add-on. It
+costs a fixed surcharge of +40% on top of the Business price and includes all
+Business features plus the following extensions.

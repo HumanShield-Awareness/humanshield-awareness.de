@@ -9,37 +9,88 @@
  * Modell: Es gibt ausschließlich Jahrespreise (Jahresabo über Paddle),
  * gestaffelt nach Mitarbeiterzahl. Keine monatliche Abrechnung.
  * Mindestbestellmenge: 25 Nutzer:innen.
+ *
+ * Zwei Add-ons auf die kostenlose Core-Version:
+ *   • Business – der Staffelpreis pro Mitarbeiter:in/Jahr (siehe priceBands).
+ *   • Enterprise – KEIN eigenständiges Add-on, sondern ein Upgrade auf
+ *     Business: fester Aufschlag von +40 % auf den Business-Preis. In Paddle
+ *     als zusätzliches „Delta“-Item (nur die 40 % Differenz) abgebildet, das
+ *     gemeinsam mit dem Business-Item gebucht wird. Der Kunde zahlt also
+ *     Business (100 %) + Enterprise-Delta (40 %) = 140 %.
  */
 
 export const GITHUB_ORG_URL = "https://github.com/securebitsorg";
 /** GitHub-Hauptrepository der HumanShield-Software */
 export const GITHUB_REPO_URL = "https://github.com/securebitsorg/HumanShield.APP";
 
-/** Kontakt für Enterprise-Anfragen */
+/** Kontakt für Vertriebs-/Enterprise-Anfragen */
 export const SALES_EMAIL = "support@secure-bits.org";
+
+/** Enterprise ist ein Upgrade auf Business: fester Aufschlag von +40 %. */
+export const ENTERPRISE_SURCHARGE = 0.4;
 
 /** Preis-Staffelung nach Mitarbeiterzahl */
 export interface PriceBand {
-  /** Obergrenze Mitarbeiter (inklusive); null = „auf Anfrage“ */
+  /** Obergrenze Mitarbeiter (inklusive); null = oberstes Band (nach oben offen) */
   maxEmployees: number | null;
-  /** €/Mitarbeiter/Jahr; null = „auf Anfrage“ (Enterprise) */
-  pricePerEmployeeYearly: number | null;
+  /** Business-Preis in €/Mitarbeiter:in/Jahr */
+  pricePerEmployeeYearly: number;
+  /** Paddle-Preis-ID des Business-Add-ons für dieses Band (PLATZHALTER) */
+  paddleBusinessPriceId: string;
+  /**
+   * Paddle-Preis-ID des Enterprise-Delta-Add-ons für dieses Band (PLATZHALTER).
+   * Trägt NUR die 40 %-Differenz – wird zusammen mit dem Business-Item gebucht.
+   */
+  paddleEnterpriseDeltaPriceId: string;
 }
 
 export const priceBands: PriceBand[] = [
-  { maxEmployees: 50, pricePerEmployeeYearly: 25 },
-  { maxEmployees: 150, pricePerEmployeeYearly: 21 },
-  { maxEmployees: 300, pricePerEmployeeYearly: 18 },
-  { maxEmployees: 500, pricePerEmployeeYearly: 15 },
-  { maxEmployees: 1000, pricePerEmployeeYearly: 13 },
-  { maxEmployees: 2500, pricePerEmployeeYearly: 11 },
-  { maxEmployees: null, pricePerEmployeeYearly: null }, // > 2.500 → Enterprise-Kontakt
+  {
+    maxEmployees: 50,
+    pricePerEmployeeYearly: 25,
+    paddleBusinessPriceId: "pri_PLATZHALTER_biz_band1",
+    paddleEnterpriseDeltaPriceId: "pri_PLATZHALTER_ent_band1",
+  },
+  {
+    maxEmployees: 150,
+    pricePerEmployeeYearly: 21,
+    paddleBusinessPriceId: "pri_PLATZHALTER_biz_band2",
+    paddleEnterpriseDeltaPriceId: "pri_PLATZHALTER_ent_band2",
+  },
+  {
+    maxEmployees: 300,
+    pricePerEmployeeYearly: 18,
+    paddleBusinessPriceId: "pri_PLATZHALTER_biz_band3",
+    paddleEnterpriseDeltaPriceId: "pri_PLATZHALTER_ent_band3",
+  },
+  {
+    maxEmployees: 500,
+    pricePerEmployeeYearly: 15,
+    paddleBusinessPriceId: "pri_PLATZHALTER_biz_band4",
+    paddleEnterpriseDeltaPriceId: "pri_PLATZHALTER_ent_band4",
+  },
+  {
+    maxEmployees: 1000,
+    pricePerEmployeeYearly: 13,
+    paddleBusinessPriceId: "pri_PLATZHALTER_biz_band5",
+    paddleEnterpriseDeltaPriceId: "pri_PLATZHALTER_ent_band5",
+  },
+  {
+    maxEmployees: 2500,
+    pricePerEmployeeYearly: 11,
+    paddleBusinessPriceId: "pri_PLATZHALTER_biz_band6",
+    paddleEnterpriseDeltaPriceId: "pri_PLATZHALTER_ent_band6",
+  },
+  {
+    maxEmployees: null, // > 2.500 → oberstes Band, nach oben offen
+    pricePerEmployeeYearly: 10,
+    paddleBusinessPriceId: "pri_PLATZHALTER_biz_band7",
+    paddleEnterpriseDeltaPriceId: "pri_PLATZHALTER_ent_band7",
+  },
 ];
 
 /** Mindestbestellmenge – kleinere Teams zahlen für 25 Nutzer:innen */
 export const MIN_ORDER_EMPLOYEES = 25;
-
-export const MAX_SELF_SERVICE_EMPLOYEES = 2500;
 
 /** Abgerechnete Menge: nie weniger als die Mindestbestellmenge */
 export function billableEmployees(employees: number): number {
@@ -55,23 +106,55 @@ export function bandFor(employees: number): PriceBand {
   );
 }
 
-/** Jahresgesamtpreis (Abrechnungsbetrag des Jahresabos), null wenn „auf Anfrage“ */
-export function totalYearly(employees: number): number | null {
-  const band = bandFor(employees);
-  if (band.pricePerEmployeeYearly === null) return null;
-  // Auf Cent runden, um Fließkomma-Artefakte zu vermeiden
-  return (
-    Math.round(billableEmployees(employees) * band.pricePerEmployeeYearly * 100) /
-    100
-  );
+/**
+ * Preis pro Mitarbeiter:in/Jahr für das gewählte Staffel-Band.
+ * Mit `enterprise` wird der Enterprise-Aufschlag (+40 %) aufgeschlagen.
+ */
+export function perEmployeeYearly(employees: number, enterprise = false): number {
+  const base = bandFor(employees).pricePerEmployeeYearly;
+  const price = enterprise ? base * (1 + ENTERPRISE_SURCHARGE) : base;
+  return Math.round(price * 100) / 100;
 }
 
-/** Günstigster Staffelpreis – für die „ab …“-Anzeige auf der Preiskarte */
-export function cheapestYearlyPerEmployee(): number {
-  return priceBands
-    .map((b) => b.pricePerEmployeeYearly)
-    .filter((p): p is number => p !== null)
-    .sort((a, b) => a - b)[0];
+/**
+ * Jahresgesamtpreis (Abrechnungsbetrag des Jahresabos).
+ * Mit `enterprise` inklusive Enterprise-Aufschlag (+40 %).
+ */
+export function totalYearly(employees: number, enterprise = false): number {
+  const base = billableEmployees(employees) * bandFor(employees).pricePerEmployeeYearly;
+  const total = enterprise ? base * (1 + ENTERPRISE_SURCHARGE) : base;
+  // Auf Cent runden, um Fließkomma-Artefakte zu vermeiden
+  return Math.round(total * 100) / 100;
+}
+
+/**
+ * Günstigster Staffelpreis (oberstes Band) – für die „ab …“-Anzeige auf der
+ * Preiskarte. Mit `enterprise` der günstigste Enterprise-Preis (+40 %).
+ */
+export function cheapestYearlyPerEmployee(enterprise = false): number {
+  const cheapestBase = Math.min(
+    ...priceBands.map((b) => b.pricePerEmployeeYearly),
+  );
+  const price = enterprise ? cheapestBase * (1 + ENTERPRISE_SURCHARGE) : cheapestBase;
+  return Math.round(price * 100) / 100;
+}
+
+/**
+ * Paddle-Checkout-Items für die gewählte Mitarbeiterzahl.
+ * Immer das Business-Item; bei `enterprise` zusätzlich das Enterprise-Delta-Item
+ * mit identischer Menge (beide zusammen ergeben den 140 %-Gesamtpreis).
+ */
+export function checkoutItems(
+  employees: number,
+  enterprise = false,
+): { priceId: string; quantity: number }[] {
+  const band = bandFor(employees);
+  const quantity = billableEmployees(employees);
+  const items = [{ priceId: band.paddleBusinessPriceId, quantity }];
+  if (enterprise) {
+    items.push({ priceId: band.paddleEnterpriseDeltaPriceId, quantity });
+  }
+  return items;
 }
 
 /**
@@ -90,29 +173,16 @@ export function formatEuro(value: number, locale = "de-DE"): string {
 export interface Tier {
   id: "community" | "business" | "enterprise";
   highlighted: boolean;
-  /**
-   * Paddle-Preis-ID des Jahresabos – PLATZHALTER, im Paddle-Dashboard
-   * angelegte ID (pri_…) eintragen. Nur für kaufbare Tiers gesetzt.
-   */
-  paddlePriceId?: string;
 }
 
 /**
- * Struktur & Kauf-Metadaten der Tiers. Die angezeigten Texte (Name, Tagline,
+ * Struktur & Anzeige-Metadaten der Tiers. Die angezeigten Texte (Name, Tagline,
  * Feature-Liste) sind lokalisiert und liegen in src/i18n/ui.ts → tierText.
+ * Preise/Paddle-IDs stehen zentral in priceBands – Business und Enterprise
+ * teilen sich dieselbe Staffel (Enterprise = Business + 40 %).
  */
 export const tiers: Tier[] = [
-  {
-    id: "community",
-    highlighted: false,
-  },
-  {
-    id: "business",
-    highlighted: true,
-    paddlePriceId: "pri_PLATZHALTER_BUSINESS_JAHRESABO",
-  },
-  {
-    id: "enterprise",
-    highlighted: false,
-  },
+  { id: "community", highlighted: false },
+  { id: "business", highlighted: true },
+  { id: "enterprise", highlighted: false },
 ];

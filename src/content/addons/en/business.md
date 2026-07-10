@@ -1,6 +1,6 @@
 ---
 name: Business
-tagline: For companies with up to 2,500 employees
+tagline: The full feature set – tiered by number of employees
 order: 1
 highlighted: true
 groups:

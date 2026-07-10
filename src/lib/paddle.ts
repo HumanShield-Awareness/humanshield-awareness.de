@@ -34,15 +34,17 @@ export function getPaddle(): Promise<Paddle | undefined> {
   return paddlePromise;
 }
 
-/** Öffnet das Paddle-Checkout-Overlay für ein Jahresabo. */
+/**
+ * Öffnet das Paddle-Checkout-Overlay für ein Jahresabo.
+ *
+ * Ein oder mehrere Items – Enterprise wird als zusätzliches Delta-Item
+ * gemeinsam mit dem Business-Item gebucht (siehe checkoutItems in pricing.ts).
+ */
 export async function openCheckout(
-  priceId: string,
-  quantity = 1,
+  items: { priceId: string; quantity: number }[],
 ): Promise<boolean> {
   const paddle = await getPaddle();
   if (!paddle) return false;
-  paddle.Checkout.open({
-    items: [{ priceId, quantity }],
-  });
+  paddle.Checkout.open({ items });
   return true;
 }

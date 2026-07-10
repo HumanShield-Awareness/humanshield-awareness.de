@@ -2,21 +2,20 @@
  * React-Island: Preiskarten der drei Tiers.
  *
  * Es gibt ausschließlich Jahrespreise (Jahresabo über Paddle), gestaffelt
- * nach Mitarbeiterzahl. Preise & Paddle-IDs kommen zentral aus
+ * nach Mitarbeiterzahl. Business ist der Staffelpreis, Enterprise ein Upgrade
+ * darauf (+40 %). Da der Checkout die Mitarbeiterzahl braucht (Staffel-Band),
+ * führen die Kauf-CTAs in den Preisrechner. Preise kommen zentral aus
  * src/lib/pricing.ts; die angezeigten Texte aus src/i18n/ui.ts (tierText).
  */
-import { useState } from "react";
 import {
   tiers,
   cheapestYearlyPerEmployee,
   formatEuro,
   GITHUB_REPO_URL,
-  SALES_EMAIL,
   type Tier,
 } from "../../lib/pricing";
 import { ui, tierText, type Lang } from "../../i18n/ui";
 import { intlLocale } from "../../i18n/utils";
-import { openCheckout } from "../../lib/paddle";
 
 const CheckIcon = () => (
   <svg
@@ -48,48 +47,25 @@ function TierPrice({ tier, lang }: { tier: Tier; lang: Lang }) {
     );
   }
 
-  if (tier.id === "enterprise") {
-    return (
-      <div className="mt-6">
-        <span className="text-4xl font-extrabold tracking-tight text-gray-900">
-          {t.priceOnRequest}
-        </span>
-        <p className="mt-1 text-sm text-steel">{t.priceOnRequestSub}</p>
-      </div>
-    );
-  }
-
-  // Business: Einstiegspreis "ab" aus der günstigsten Staffel
+  // Business & Enterprise: Einstiegspreis "ab" aus der günstigsten Staffel.
+  // Enterprise = Business + 40 %.
+  const isEnterprise = tier.id === "enterprise";
   return (
     <div className="mt-6">
       <span className="text-sm font-medium text-steel">{t.priceFrom}</span>{" "}
       <span className="text-4xl font-extrabold text-gray-900">
-        {formatEuro(cheapestYearlyPerEmployee(), intlLocale(lang))}
+        {formatEuro(cheapestYearlyPerEmployee(isEnterprise), intlLocale(lang))}
       </span>
-      <span className="text-sm font-medium text-steel">
-        {" "}
-        {t.pricePerEmployeeYear}
-      </span>
-      <p className="mt-1 text-sm text-steel">{t.priceBusinessSub}</p>
+      <span className="text-sm font-medium text-steel"> {t.pricePerEmployeeYear}</span>
+      <p className="mt-1 text-sm text-steel">
+        {isEnterprise ? t.priceEnterpriseSub : t.priceBusinessSub}
+      </p>
     </div>
   );
 }
 
 export default function PricingTiers({ lang }: { lang: Lang }) {
   const t = ui[lang];
-  const [pending, setPending] = useState(false);
-  const [checkoutHint, setCheckoutHint] = useState<string | null>(null);
-
-  async function handleCheckout(tier: Tier) {
-    if (!tier.paddlePriceId) return;
-    setPending(true);
-    setCheckoutHint(null);
-    const opened = await openCheckout(tier.paddlePriceId);
-    if (!opened) {
-      setCheckoutHint(t.checkoutUnavailable + SALES_EMAIL);
-    }
-    setPending(false);
-  }
 
   return (
     <div>
@@ -111,9 +87,7 @@ export default function PricingTiers({ lang }: { lang: Lang }) {
                 </span>
               )}
 
-              <h3 className="text-lg font-semibold text-gray-900">
-                {text.name}
-              </h3>
+              <h3 className="text-lg font-semibold text-gray-900">{text.name}</h3>
               <p className="mt-1 text-sm text-steel">{text.tagline}</p>
 
               <TierPrice tier={tier} lang={lang} />
@@ -131,7 +105,7 @@ export default function PricingTiers({ lang }: { lang: Lang }) {
               </ul>
 
               <div className="mt-8">
-                {tier.id === "community" && (
+                {tier.id === "community" ? (
                   <a
                     href={GITHUB_REPO_URL}
                     target="_blank"
@@ -140,23 +114,16 @@ export default function PricingTiers({ lang }: { lang: Lang }) {
                   >
                     {t.ctaGithub}
                   </a>
-                )}
-                {tier.id === "business" && (
-                  <button
-                    type="button"
-                    disabled={pending}
-                    onClick={() => handleCheckout(tier)}
-                    className="block w-full rounded-full bg-brand-500 py-3 text-center text-sm font-semibold text-white shadow-md shadow-brand-500/25 transition-all hover:bg-brand-600 disabled:opacity-60"
-                  >
-                    {pending ? t.checkoutOpening : t.ctaStartSubscription}
-                  </button>
-                )}
-                {tier.id === "enterprise" && (
+                ) : (
                   <a
-                    href={`mailto:${SALES_EMAIL}?subject=HumanShield%20Enterprise`}
-                    className="block w-full rounded-full border border-gray-900 py-3 text-center text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+                    href="#preisrechner"
+                    className={`block w-full rounded-full py-3 text-center text-sm font-semibold transition-all ${
+                      tier.highlighted
+                        ? "bg-brand-500 text-white shadow-md shadow-brand-500/25 hover:bg-brand-600"
+                        : "border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white"
+                    }`}
                   >
-                    {t.ctaContact}
+                    {t.ctaCalculatePrice}
                   </a>
                 )}
               </div>
@@ -164,12 +131,6 @@ export default function PricingTiers({ lang }: { lang: Lang }) {
           );
         })}
       </div>
-
-      {checkoutHint && (
-        <p className="mt-6 text-center text-sm font-medium text-brand-700">
-          {checkoutHint}
-        </p>
-      )}
     </div>
   );
 }

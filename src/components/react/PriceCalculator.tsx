@@ -3,18 +3,18 @@
  *
  * Rein clientseitige Berechnung (CLAUDE.md) – keine Backend-Anbindung.
  * Es gibt ausschließlich Jahrespreise, gestaffelt nach Mitarbeiterzahl.
- * Preislogik/Staffelung kommt zentral aus src/lib/pricing.ts (PLATZHALTER),
- * feste Texte aus src/i18n/ui.ts.
+ * Business ist der Staffelpreis; Enterprise ein Upgrade darauf (+40 %),
+ * das per Checkbox dazugebucht wird. Preislogik/Staffelung kommt zentral aus
+ * src/lib/pricing.ts (PLATZHALTER), feste Texte aus src/i18n/ui.ts.
  */
 import { useMemo, useState } from "react";
 import {
-  bandFor,
   billableEmployees,
+  checkoutItems,
   formatEuro,
-  MAX_SELF_SERVICE_EMPLOYEES,
   MIN_ORDER_EMPLOYEES,
+  perEmployeeYearly,
   SALES_EMAIL,
-  tiers,
   totalYearly,
 } from "../../lib/pricing";
 import { ui, type Lang } from "../../i18n/ui";
@@ -22,22 +22,26 @@ import { format, intlLocale } from "../../i18n/utils";
 import { openCheckout } from "../../lib/paddle";
 
 const MIN = 1;
-const MAX = 3000; // Slider bewusst über die Selbstbedienungs-Grenze hinaus
+const MAX = 3000; // Slider-Obergrenze; größere Zahlen können getippt werden
 
 export default function PriceCalculator({ lang }: { lang: Lang }) {
   const t = ui[lang];
   const locale = intlLocale(lang);
   // Startwert = Mindestbestellmenge (kleinste kaufbare Lizenzanzahl)
   const [employees, setEmployees] = useState(MIN_ORDER_EMPLOYEES);
+  const [enterprise, setEnterprise] = useState(false);
   const [pending, setPending] = useState(false);
   const [checkoutHint, setCheckoutHint] = useState<string | null>(null);
 
-  const isEnterprise = employees > MAX_SELF_SERVICE_EMPLOYEES;
   const belowMinOrder = employees < MIN_ORDER_EMPLOYEES;
-  const band = useMemo(() => bandFor(employees), [employees]);
-  const yearly = useMemo(() => totalYearly(employees), [employees]);
-
-  const businessTier = tiers.find((t) => t.id === "business");
+  const perEmployee = useMemo(
+    () => perEmployeeYearly(employees, enterprise),
+    [employees, enterprise],
+  );
+  const yearly = useMemo(
+    () => totalYearly(employees, enterprise),
+    [employees, enterprise],
+  );
 
   function clamp(value: number): number {
     if (Number.isNaN(value)) return MIN;
@@ -45,16 +49,9 @@ export default function PriceCalculator({ lang }: { lang: Lang }) {
   }
 
   async function handleCheckout() {
-    if (!businessTier?.paddlePriceId) return;
     setPending(true);
     setCheckoutHint(null);
-    // Menge = abgerechnete Mitarbeiterzahl (mind. Mindestbestellmenge);
-    // das Paddle-Produkt muss als Stückpreis pro Mitarbeiter:in angelegt
-    // sein (Staffel ggf. über Paddle-Preise lösen).
-    const opened = await openCheckout(
-      businessTier.paddlePriceId,
-      billableEmployees(employees),
-    );
+    const opened = await openCheckout(checkoutItems(employees, enterprise));
     if (!opened) {
       setCheckoutHint(t.checkoutUnavailable + SALES_EMAIL);
     }
@@ -92,79 +89,83 @@ export default function PriceCalculator({ lang }: { lang: Lang }) {
         <span>{MAX.toLocaleString(locale)}+</span>
       </div>
 
-      <div className="mt-8 rounded-2xl bg-gray-50 p-6">
-        {isEnterprise ? (
-          <div className="text-center">
-            <p className="text-lg font-semibold text-gray-900">
-              {format(t.calcEnterpriseLead, {
-                n: (MAX_SELF_SERVICE_EMPLOYEES + 1).toLocaleString(locale),
-              })}
+      {/* Enterprise-Upgrade (+40 %) als optionale Zubuchung zum Business-Add-on */}
+      <label
+        htmlFor="enterprise"
+        className={`mt-8 flex cursor-pointer items-start gap-3 rounded-2xl border p-5 transition-colors ${
+          enterprise
+            ? "border-brand-500 bg-brand-50"
+            : "border-gray-200 bg-white hover:border-gray-300"
+        }`}
+      >
+        <input
+          id="enterprise"
+          type="checkbox"
+          checked={enterprise}
+          onChange={(e) => setEnterprise(e.target.checked)}
+          className="mt-0.5 h-5 w-5 shrink-0 rounded border-gray-300 accent-brand-500"
+        />
+        <span>
+          <span className="block text-sm font-semibold text-gray-900">
+            {t.calcEnterpriseToggle}
+          </span>
+          <span className="mt-1 block text-xs text-steel">
+            {t.calcEnterpriseHint}
+          </span>
+        </span>
+      </label>
+
+      <div className="mt-6 rounded-2xl bg-gray-50 p-6">
+        <div className="grid gap-6 text-center sm:grid-cols-2">
+          <div>
+            <p className="text-sm text-steel">{t.calcPricePerEmployee}</p>
+            <p className="mt-1 text-2xl font-extrabold tracking-tight text-gray-900">
+              {formatEuro(perEmployee, locale)}
+              <span className="text-sm font-medium text-steel"> {t.calcPerYear}</span>
             </p>
-            <a
-              href={`mailto:${SALES_EMAIL}?subject=${encodeURIComponent(
-                format(t.calcEnterpriseSubject, { n: employees }),
-              )}`}
-              className="mt-6 inline-block rounded-full bg-gray-900 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-700"
-            >
-              {t.calcEnterpriseCta}
-            </a>
           </div>
-        ) : (
-          <>
-            <div className="grid gap-6 text-center sm:grid-cols-2">
-              <div>
-                <p className="text-sm text-steel">{t.calcPricePerEmployee}</p>
-                <p className="mt-1 text-2xl font-extrabold tracking-tight text-gray-900">
-                  {formatEuro(band.pricePerEmployeeYearly ?? 0, locale)}
-                  <span className="text-sm font-medium text-steel">
-                    {" "}
-                    {t.calcPerYear}
-                  </span>
-                </p>
-              </div>
-              <div>
-                <p className="text-sm text-steel">{t.calcYearlyTotal}</p>
-                <p className="mt-1 text-2xl font-extrabold tracking-tight text-brand-500">
-                  {yearly !== null ? formatEuro(yearly, locale) : "–"}
-                  <span className="text-sm font-medium text-steel">
-                    {" "}
-                    {t.calcPerYear}
-                  </span>
-                </p>
-              </div>
-            </div>
-
-            {belowMinOrder && (
-              <p className="mt-4 text-center text-sm font-medium text-brand-700">
-                {format(t.calcBelowMin, { min: MIN_ORDER_EMPLOYEES })}
-              </p>
-            )}
-
-            <p className="mt-4 text-center text-xs text-steel">
-              {format(t.calcDisclaimer, { min: MIN_ORDER_EMPLOYEES })}
+          <div>
+            <p className="text-sm text-steel">{t.calcYearlyTotal}</p>
+            <p className="mt-1 text-2xl font-extrabold tracking-tight text-brand-500">
+              {formatEuro(yearly, locale)}
+              <span className="text-sm font-medium text-steel"> {t.calcPerYear}</span>
             </p>
+          </div>
+        </div>
 
-            <div className="mt-6 text-center">
-              <button
-                type="button"
-                disabled={pending}
-                onClick={handleCheckout}
-                className="rounded-full bg-brand-500 px-8 py-3 text-sm font-semibold text-white shadow-md shadow-brand-500/25 transition-all hover:bg-brand-600 disabled:opacity-60"
-              >
-                {pending
-                  ? t.checkoutOpening
-                  : format(t.calcCheckoutBtn, {
-                      n: employees.toLocaleString(locale),
-                    })}
-              </button>
-              {checkoutHint && (
-                <p className="mt-4 text-sm font-medium text-brand-700">
-                  {checkoutHint}
-                </p>
-              )}
-            </div>
-          </>
+        {enterprise && (
+          <p className="mt-4 text-center text-sm font-medium text-brand-700">
+            {t.calcEnterpriseIncluded}
+          </p>
         )}
+
+        {belowMinOrder && (
+          <p className="mt-4 text-center text-sm font-medium text-brand-700">
+            {format(t.calcBelowMin, { min: MIN_ORDER_EMPLOYEES })}
+          </p>
+        )}
+
+        <p className="mt-4 text-center text-xs text-steel">
+          {format(t.calcDisclaimer, { min: MIN_ORDER_EMPLOYEES })}
+        </p>
+
+        <div className="mt-6 text-center">
+          <button
+            type="button"
+            disabled={pending}
+            onClick={handleCheckout}
+            className="rounded-full bg-brand-500 px-8 py-3 text-sm font-semibold text-white shadow-md shadow-brand-500/25 transition-all hover:bg-brand-600 disabled:opacity-60"
+          >
+            {pending
+              ? t.checkoutOpening
+              : format(enterprise ? t.calcCheckoutBtnEnterprise : t.calcCheckoutBtn, {
+                  n: billableEmployees(employees).toLocaleString(locale),
+                })}
+          </button>
+          {checkoutHint && (
+            <p className="mt-4 text-sm font-medium text-brand-700">{checkoutHint}</p>
+          )}
+        </div>
       </div>
     </div>
   );

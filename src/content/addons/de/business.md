@@ -1,6 +1,6 @@
 ---
 name: Business
-tagline: Für Unternehmen bis 2.500 Mitarbeitende
+tagline: Der volle Funktionsumfang – gestaffelt nach Mitarbeiterzahl
 order: 1
 highlighted: true
 groups:

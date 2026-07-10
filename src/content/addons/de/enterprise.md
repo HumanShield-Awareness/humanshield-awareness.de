@@ -1,6 +1,6 @@
 ---
 name: Enterprise
-tagline: Für große Organisationen ab 2.500 Mitarbeitenden
+tagline: Business plus Plattform, KI & SSO – als Upgrade (+40 %)
 order: 2
 highlighted: false
 groups:
@@ -21,5 +21,6 @@ groups:
       - Individuelle Berichte
 ---
 
-Das Enterprise-Add-on enthält alle Business-Funktionen – plus die folgenden
-Erweiterungen für große Organisationen.
+Das Enterprise-Add-on ist ein Upgrade auf Business – kein eigenständiges
+Add-on. Es kostet einen festen Aufschlag von +40 % auf den Business-Preis und
+enthält alle Business-Funktionen plus die folgenden Erweiterungen.

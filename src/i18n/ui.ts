@@ -81,7 +81,7 @@ export const ui = {
       "HumanShield Awareness – Security-Awareness-Trainings und Phishing-Simulationen, die Ihre Mitarbeitenden zur stärksten Verteidigungslinie machen. Entwickelt in Deutschland, DSGVO-konform und NIS2-ready.",
     metaPricingTitle: "Preise – HumanShield Awareness",
     metaPricingDesc:
-      "Transparente Preise für HumanShield Awareness: kostenlose Community-Edition, Business-Jahresabo gestaffelt nach Mitarbeiterzahl und individuelle Enterprise-Angebote.",
+      "Transparente Preise für HumanShield Awareness: kostenlose Community-Edition, Business-Jahresabo gestaffelt nach Mitarbeiterzahl und Enterprise als Upgrade (+40 %) mit White-Label, SSO und SIEM-Export.",
     metaFeaturesTitle: "Funktionen – HumanShield Awareness",
     metaFeaturesDesc:
       "Alle Funktionen von HumanShield Awareness im Überblick: Was die kostenlose Core-Version, das Business-Add-on und das Enterprise-Add-on freischalten.",
@@ -91,14 +91,12 @@ export const ui = {
     popular: "Beliebt",
     priceFree: "Kostenlos",
     priceFreeSub: "für immer, self-hosted",
-    priceOnRequest: "Auf Anfrage",
-    priceOnRequestSub: "individuelle Staffelpreise",
     priceFrom: "ab",
     pricePerEmployeeYear: "/ Mitarbeiter:in / Jahr",
     priceBusinessSub: "Jahresabo, gestaffelt nach Mitarbeiterzahl",
+    priceEnterpriseSub: "Business + 40 % – nur als Upgrade zum Business-Add-on",
     ctaGithub: "Auf GitHub starten",
-    ctaStartSubscription: "Jahresabo starten",
-    ctaContact: "Kontakt aufnehmen",
+    ctaCalculatePrice: "Preis berechnen",
     checkoutOpening: "Checkout wird geöffnet …",
     checkoutUnavailable:
       "Der Checkout ist gerade nicht verfügbar. Bitte schreiben Sie uns: ",
@@ -106,18 +104,20 @@ export const ui = {
     // ── Preisrechner (PriceCalculator.tsx) ───────────────────────────────
     calcLabel: "Wie viele Mitarbeitende hat Ihr Unternehmen?",
     calcSliderAria: "Mitarbeiterzahl wählen",
-    calcEnterpriseLead:
-      "Ab {n} Mitarbeitenden erstellen wir Ihnen gern ein individuelles Enterprise-Angebot.",
-    calcEnterpriseCta: "Enterprise-Angebot anfragen",
-    calcEnterpriseSubject: "HumanShield Enterprise ({n} Mitarbeitende)",
+    calcEnterpriseToggle: "Enterprise-Add-on hinzufügen (+40 %)",
+    calcEnterpriseHint:
+      "Enthält White-Label, SAML-SSO, SIEM-Export und KI-Risikobewertung. Nur zusammen mit dem Business-Add-on buchbar.",
+    calcEnterpriseIncluded: "inkl. Enterprise-Upgrade (+40 % auf den Business-Preis)",
     calcPricePerEmployee: "Preis pro Mitarbeiter:in",
     calcPerYear: "/Jahr",
     calcYearlyTotal: "Jahresabo gesamt",
     calcBelowMin:
       "Mindestbestellmenge: {min} Nutzer:innen – der Preis wird für {min} berechnet.",
     calcDisclaimer:
-      "Business-Tier · Abrechnung jährlich über Paddle · Mindestbestellmenge {min} Nutzer:innen · Preise zzgl. USt., Paddle weist die korrekte Steuer im Checkout aus",
+      "Abrechnung jährlich über Paddle · Mindestbestellmenge {min} Nutzer:innen · Preise zzgl. USt., Paddle weist die korrekte Steuer im Checkout aus",
     calcCheckoutBtn: "Jahresabo für {n} Mitarbeitende starten",
+    calcCheckoutBtnEnterprise:
+      "Business + Enterprise für {n} Mitarbeitende starten",
   },
 
   en: {
@@ -185,7 +185,7 @@ export const ui = {
       "HumanShield Awareness – security awareness training and phishing simulations that turn your employees into your strongest line of defense. Built in Germany, GDPR-compliant and NIS2-ready.",
     metaPricingTitle: "Pricing – HumanShield Awareness",
     metaPricingDesc:
-      "Transparent pricing for HumanShield Awareness: free Community edition, a Business annual subscription tiered by number of employees, and custom Enterprise offers.",
+      "Transparent pricing for HumanShield Awareness: free Community edition, a Business annual subscription tiered by number of employees, and Enterprise as an upgrade (+40%) with white-label, SSO and SIEM export.",
     metaFeaturesTitle: "Features – HumanShield Awareness",
     metaFeaturesDesc:
       "All HumanShield Awareness features at a glance: what the free Core version, the Business add-on and the Enterprise add-on unlock.",
@@ -195,14 +195,12 @@ export const ui = {
     popular: "Popular",
     priceFree: "Free",
     priceFreeSub: "forever, self-hosted",
-    priceOnRequest: "On request",
-    priceOnRequestSub: "custom volume pricing",
     priceFrom: "from",
     pricePerEmployeeYear: "/ employee / year",
     priceBusinessSub: "Annual subscription, tiered by number of employees",
+    priceEnterpriseSub: "Business + 40% – only as an upgrade to the Business add-on",
     ctaGithub: "Get started on GitHub",
-    ctaStartSubscription: "Start annual subscription",
-    ctaContact: "Contact us",
+    ctaCalculatePrice: "Calculate price",
     checkoutOpening: "Opening checkout …",
     checkoutUnavailable:
       "Checkout is currently unavailable. Please write to us: ",
@@ -210,18 +208,19 @@ export const ui = {
     // ── Price calculator (PriceCalculator.tsx) ───────────────────────────
     calcLabel: "How many employees does your company have?",
     calcSliderAria: "Select number of employees",
-    calcEnterpriseLead:
-      "From {n} employees, we'd be glad to prepare a custom Enterprise offer for you.",
-    calcEnterpriseCta: "Request Enterprise offer",
-    calcEnterpriseSubject: "HumanShield Enterprise ({n} employees)",
+    calcEnterpriseToggle: "Add the Enterprise add-on (+40%)",
+    calcEnterpriseHint:
+      "Includes white-label, SAML SSO, SIEM export and AI risk scoring. Only bookable together with the Business add-on.",
+    calcEnterpriseIncluded: "incl. Enterprise upgrade (+40% on the Business price)",
     calcPricePerEmployee: "Price per employee",
     calcPerYear: "/year",
     calcYearlyTotal: "Annual subscription total",
     calcBelowMin:
       "Minimum order: {min} users – the price is calculated for {min}.",
     calcDisclaimer:
-      "Business tier · billed annually via Paddle · minimum order {min} users · prices excl. VAT; Paddle shows the correct tax at checkout",
+      "billed annually via Paddle · minimum order {min} users · prices excl. VAT; Paddle shows the correct tax at checkout",
     calcCheckoutBtn: "Start annual subscription for {n} employees",
+    calcCheckoutBtnEnterprise: "Start Business + Enterprise for {n} employees",
   },
 } as const;
 
@@ -242,7 +241,7 @@ export const tierText = {
     },
     business: {
       name: "Business",
-      tagline: "Für Unternehmen bis 2.500 Mitarbeitende",
+      tagline: "Der volle Funktionsumfang – gestaffelt nach Mitarbeiterzahl",
       features: [
         "Alle Community-Funktionen",
         "Erweiterte Phishing-Simulationen & Kampagnen",
@@ -253,13 +252,13 @@ export const tierText = {
     },
     enterprise: {
       name: "Enterprise",
-      tagline: "Für große Organisationen ab 2.500 Mitarbeitenden",
+      tagline: "Business plus Plattform, KI & SSO – als Upgrade (+40 %)",
       features: [
         "Alle Business-Funktionen",
-        "Individuelle Staffelpreise",
-        "Onboarding-Unterstützung",
-        "Prioritäts-Support",
-        "Individuelle Vertragsgestaltung",
+        "White-Label & SAML-SSO",
+        "SIEM-Export (Wazuh, Splunk, Sentinel …)",
+        "KI-Risikobewertung & automatische Kampagnen",
+        "Nur zusammen mit dem Business-Add-on buchbar",
       ],
     },
   },
@@ -276,7 +275,7 @@ export const tierText = {
     },
     business: {
       name: "Business",
-      tagline: "For companies with up to 2,500 employees",
+      tagline: "The full feature set – tiered by number of employees",
       features: [
         "All Community features",
         "Advanced phishing simulations & campaigns",
@@ -287,13 +286,13 @@ export const tierText = {
     },
     enterprise: {
       name: "Enterprise",
-      tagline: "For large organizations with 2,500+ employees",
+      tagline: "Business plus platform, AI & SSO – as an upgrade (+40%)",
       features: [
         "All Business features",
-        "Custom volume pricing",
-        "Onboarding support",
-        "Priority support",
-        "Custom contract terms",
+        "White-label & SAML SSO",
+        "SIEM export (Wazuh, Splunk, Sentinel …)",
+        "AI risk scoring & automated campaigns",
+        "Only bookable together with the Business add-on",
       ],
     },
   },
