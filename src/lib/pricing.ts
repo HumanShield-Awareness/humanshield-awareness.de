@@ -24,7 +24,7 @@ export const GITHUB_ORG_URL = "https://github.com/securebitsorg";
 export const GITHUB_REPO_URL = "https://github.com/securebitsorg/HumanShield.APP";
 
 /** Kontakt für Vertriebs-/Enterprise-Anfragen */
-export const SALES_EMAIL = "support@secure-bits.org";
+export const SALES_EMAIL = "support@humanshield.app";
 
 /** Enterprise ist ein Upgrade auf Business: fester Aufschlag von +40 %. */
 export const ENTERPRISE_SURCHARGE = 0.4;

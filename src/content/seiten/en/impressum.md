@@ -14,6 +14,6 @@ English wording reviewed by legal counsel before going live.
 [Street and number]\
 [Postal code and city]
 
-Email: support@secure-bits.org
+Email: support@humanshield.app
 
 <!-- TODO: Complete the legal notice in accordance with § 5 DDG -->
