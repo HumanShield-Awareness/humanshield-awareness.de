@@ -12,10 +12,12 @@ import {
   cheapestYearlyPerEmployee,
   formatEuro,
   GITHUB_REPO_URL,
+  CHECKOUT_ENABLED,
   type Tier,
 } from "../../lib/pricing";
 import { ui, tierText, type Lang } from "../../i18n/ui";
 import { intlLocale } from "../../i18n/utils";
+import ComingSoonOverlay from "./ComingSoonOverlay";
 
 const CheckIcon = () => (
   <svg
@@ -68,8 +70,15 @@ export default function PricingTiers({ lang }: { lang: Lang }) {
   const t = ui[lang];
 
   return (
-    <div>
-      <div className="grid gap-6 lg:grid-cols-3">
+    <div className="relative">
+      {/* Solange der Verkauf nicht freigeschaltet ist: Karten deaktivieren und
+          „Bald verfügbar“-Overlay darüberlegen – kein Kaufprozess möglich. */}
+      <div
+        className={`grid gap-6 lg:grid-cols-3 ${
+          CHECKOUT_ENABLED ? "" : "pointer-events-none select-none"
+        }`}
+        inert={CHECKOUT_ENABLED ? undefined : true}
+      >
         {tiers.map((tier) => {
           const text = tierText[lang][tier.id];
           return (
@@ -131,6 +140,8 @@ export default function PricingTiers({ lang }: { lang: Lang }) {
           );
         })}
       </div>
+
+      {!CHECKOUT_ENABLED && <ComingSoonOverlay lang={lang} />}
     </div>
   );
 }

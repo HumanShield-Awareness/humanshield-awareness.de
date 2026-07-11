@@ -23,6 +23,17 @@ export const GITHUB_ORG_URL = "https://github.com/securebitsorg";
 /** GitHub-Hauptrepository der HumanShield-Software */
 export const GITHUB_REPO_URL = "https://github.com/securebitsorg/HumanShield.APP";
 
+/**
+ * Verkaufs-Schalter. Solange `false`, ist KEIN Kaufprozess möglich:
+ * Preiskarten und Preisrechner zeigen ein „Bald verfügbar“-Overlay und der
+ * Paddle-Checkout wird gar nicht erst geöffnet (siehe openCheckout in
+ * src/lib/paddle.ts). Hintergrund: Lizenzen dürfen erst nach der
+ * Gewerbeanmeldung verkauft werden – bis dahin ist nur die kostenlose
+ * Core-Version auf GitHub verfügbar. Auf `true` setzen, sobald der Verkauf
+ * (Gewerbe + Paddle-Preis-IDs) startklar ist.
+ */
+export const CHECKOUT_ENABLED = false;
+
 /** Kontakt für Vertriebs-/Enterprise-Anfragen */
 export const SALES_EMAIL = "support@humanshield.app";
 

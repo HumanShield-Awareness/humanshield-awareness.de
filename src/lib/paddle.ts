@@ -7,6 +7,7 @@
  * Zahlung, VAT und Rechnungsstellung als Merchant of Record.
  */
 import { initializePaddle, type Paddle } from "@paddle/paddle-js";
+import { CHECKOUT_ENABLED } from "./pricing";
 
 let paddlePromise: Promise<Paddle | undefined> | null = null;
 
@@ -43,6 +44,9 @@ export function getPaddle(): Promise<Paddle | undefined> {
 export async function openCheckout(
   items: { priceId: string; quantity: number }[],
 ): Promise<boolean> {
+  // Verkauf noch nicht freigeschaltet (z. B. Gewerbeanmeldung ausstehend) –
+  // hier wird garantiert kein Checkout geöffnet, unabhängig vom UI-Overlay.
+  if (!CHECKOUT_ENABLED) return false;
   const paddle = await getPaddle();
   if (!paddle) return false;
   paddle.Checkout.open({ items });

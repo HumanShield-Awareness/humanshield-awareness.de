@@ -16,10 +16,12 @@ import {
   perEmployeeYearly,
   SALES_EMAIL,
   totalYearly,
+  CHECKOUT_ENABLED,
 } from "../../lib/pricing";
 import { ui, type Lang } from "../../i18n/ui";
 import { format, intlLocale } from "../../i18n/utils";
 import { openCheckout } from "../../lib/paddle";
+import ComingSoonOverlay from "./ComingSoonOverlay";
 
 const MIN = 1;
 const MAX = 3000; // Slider-Obergrenze; größere Zahlen können getippt werden
@@ -59,7 +61,15 @@ export default function PriceCalculator({ lang }: { lang: Lang }) {
   }
 
   return (
-    <div className="mx-auto max-w-3xl rounded-3xl border border-gray-200 bg-white p-8 shadow-lg sm:p-10">
+    <div className="relative mx-auto max-w-3xl">
+      {/* Solange der Verkauf nicht freigeschaltet ist: Rechner deaktivieren und
+          „Bald verfügbar“-Overlay darüberlegen – kein Kaufprozess möglich. */}
+      <div
+        className={`rounded-3xl border border-gray-200 bg-white p-8 shadow-lg sm:p-10 ${
+          CHECKOUT_ENABLED ? "" : "pointer-events-none select-none"
+        }`}
+        inert={CHECKOUT_ENABLED ? undefined : true}
+      >
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <label htmlFor="employees" className="text-sm font-semibold text-gray-900">
           {t.calcLabel}
@@ -167,6 +177,9 @@ export default function PriceCalculator({ lang }: { lang: Lang }) {
           )}
         </div>
       </div>
+      </div>
+
+      {!CHECKOUT_ENABLED && <ComingSoonOverlay lang={lang} />}
     </div>
   );
 }

@@ -101,6 +101,13 @@ export const ui = {
     checkoutUnavailable:
       "Der Checkout ist gerade nicht verfügbar. Bitte schreiben Sie uns: ",
 
+    // ── „Bald verfügbar“-Overlay (ComingSoonOverlay.tsx) ─────────────────
+    comingSoonBadge: "Bald verfügbar",
+    comingSoonTitle: "Lizenzen bald erhältlich",
+    comingSoonText:
+      "Wir schließen gerade die letzten Vorbereitungen für den Verkauf ab – der Kauf von Business- und Enterprise-Lizenzen ist in Kürze möglich. Bis dahin steht die kostenlose Core-Version quelloffen auf GitHub bereit.",
+    comingSoonGithubCta: "Kostenlose Core-Version auf GitHub",
+
     // ── Preisrechner (PriceCalculator.tsx) ───────────────────────────────
     calcLabel: "Wie viele Mitarbeitende hat Ihr Unternehmen?",
     calcSliderAria: "Mitarbeiterzahl wählen",
@@ -204,6 +211,13 @@ export const ui = {
     checkoutOpening: "Opening checkout …",
     checkoutUnavailable:
       "Checkout is currently unavailable. Please write to us: ",
+
+    // ── “Coming soon” overlay (ComingSoonOverlay.tsx) ────────────────────
+    comingSoonBadge: "Coming soon",
+    comingSoonTitle: "Licenses available soon",
+    comingSoonText:
+      "We're putting the final touches on our sales process – purchasing Business and Enterprise licenses will be possible shortly. In the meantime, the free Core version is available as open source on GitHub.",
+    comingSoonGithubCta: "Free Core version on GitHub",
 
     // ── Price calculator (PriceCalculator.tsx) ───────────────────────────
     calcLabel: "How many employees does your company have?",
