@@ -19,9 +19,9 @@
  *     Business (100 %) + Enterprise-Delta (40 %) = 140 %.
  */
 
-export const GITHUB_ORG_URL = "https://github.com/securebitsorg";
+export const GITHUB_ORG_URL = "https://github.com/HumanShield-Awareness";
 /** GitHub-Hauptrepository der HumanShield-Software */
-export const GITHUB_REPO_URL = "https://github.com/securebitsorg/HumanShield.APP";
+export const GITHUB_REPO_URL = "https://github.com/HumanShield-Awareness/HumanShield.APP";
 
 /**
  * Verkaufs-Schalter. Solange `false`, ist KEIN Kaufprozess möglich:
