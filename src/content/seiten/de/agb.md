@@ -123,7 +123,7 @@ Der Anbieter schuldet **keine Verfügbarkeit der Kundeninstallation** und keine 
 
 ### 3.1 Open Core (kostenlos)
 
-Die Open-Core-Variante wird unter der im Repository (GitHub, Organisation *securebitsorg*) angegebenen Open-Source-Lizenz bereitgestellt. Es gilt ausschließlich der dortige Lizenztext.
+Die Open-Core-Variante wird unter der im Repository (GitHub, Organisation *HumanShield Awareness UG*) angegebenen Open-Source-Lizenz bereitgestellt. Es gilt ausschließlich der dortige Lizenztext.
 
 **Die Open-Core-Variante wird ohne jede Gewährleistung, Garantie oder Support-Zusage bereitgestellt ("as is").** Ansprüche auf Fehlerbehebung, Updates, Support oder bestimmte Funktionen bestehen nicht. § 8.1 gilt entsprechend.
 
