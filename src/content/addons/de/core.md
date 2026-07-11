@@ -14,7 +14,7 @@ groups:
       - Quelloffener Kern
       - Self-Hosting auf eigener Infrastruktur
       - DSGVO-konform & datensparsam
-      - Offline-validierbare Lizenz
+      - Gegen Lizenzserver validierte Lizenz
   - title: Für den Einstieg
     features:
       - Community-Support über GitHub
