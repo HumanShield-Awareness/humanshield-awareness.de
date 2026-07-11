@@ -180,7 +180,7 @@ Mitarbeitende von Kundenunternehmen, die Fragen zu einer Phishing-Simulation ode
 
 ## 7. Open-Core-Variante und GitHub
 
-Die kostenlose Open-Core-Variante wird über **GitHub** (GitHub, Inc., USA — Organisation *securebitsorg*) bereitgestellt. Beim Zugriff auf GitHub (Download, Issues, Pull Requests) gilt die Datenschutzerklärung von GitHub: https://docs.github.com/privacy
+Die kostenlose Open-Core-Variante wird über **GitHub** (GitHub, Inc., USA — Organisation *HumanShield Awareness UG*) bereitgestellt. Beim Zugriff auf GitHub (Download, Issues, Pull Requests) gilt die Datenschutzerklärung von GitHub: https://docs.github.com/privacy
 
 Wenn Sie dort Issues erstellen oder Beiträge leisten, verarbeitet GitHub Ihre Account-Daten in eigener Verantwortung; wir sehen die von Ihnen öffentlich geposteten Inhalte.
 
