@@ -14,7 +14,6 @@ groups:
       - Open-source core
       - Self-hosting on your own infrastructure
       - GDPR-compliant & data-minimizing
-      - License validated against license server
   - title: Getting started
     features:
       - Community support via GitHub
