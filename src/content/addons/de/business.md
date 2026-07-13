@@ -53,3 +53,4 @@ groups:
 
 Das Business-Add-on schaltet zusätzlich zur kostenlosen Core-Version alle
 folgenden Funktionen frei – als Jahresabo, gestaffelt nach Mitarbeiterzahl.
+
