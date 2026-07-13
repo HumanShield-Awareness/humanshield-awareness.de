@@ -30,7 +30,7 @@ Deutschland
 
 ## Vertretung und Haftung
 
-Diese Website wird betrieben von **HumanShield Awareness UG**. Für die Korrektheit und Vollständigkeit der Inhalte wird trotz sorgfältiger Prüfung keine Haftung übernommen, insoweit dies gesetzlich zulässig ist.
+Diese Website wird betrieben von **HumanShield Awareness UG**. Für die Korrektheit und Vollständigkeit der Inhalte wird trotz sorgfältiger Prüfung keine Haftung übernommen, insoweit dies gesetzlich zulässig ist. 
 
 **Haftungsausschluss:**
 - Inhalte dieser Website dienen nur zu Informationszwecken
