@@ -26,7 +26,6 @@ E-Mail: legal@humanshield.app
 
 Weitere Angaben: siehe [Impressum](./impressum.md).
 
-Ein Datenschutzbeauftragter ist [nicht benannt, da gesetzlich nicht erforderlich / benannt: NAME, KONTAKT].
 
 ---
 
