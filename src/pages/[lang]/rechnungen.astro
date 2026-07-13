@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { useTranslations, localizedPath } from "../../i18n/utils";
+import { type Lang } from "../../i18n/ui";
+import { PADDLE_CUSTOMER_PORTAL_URL, SALES_EMAIL } from "../../lib/pricing";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "de" } }, { params: { lang: "en" } }];
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+
+const portalUrl = PADDLE_CUSTOMER_PORTAL_URL;
+const hasPortalUrl = portalUrl.length > 0;
+---
+
+<BaseLayout
+  lang={lang}
+  title={t("metaBillingTitle")}
+  description={t("metaBillingDesc")}
+>
+  <section class="mx-auto max-w-3xl px-4 py-20 sm:px-6">
+    <p class="eyebrow">{t("billingEyebrow")}</p>
+    <h1 class="mt-3 text-3xl font-bold tracking-display text-gray-900">
+      {t("billingTitle")}
+    </h1>
+    <p class="mt-5 text-lg text-steel">{t("billingIntro")}</p>
+
+    <div class="mt-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+      <h2 class="text-sm font-semibold text-gray-900">{t("billingCanTitle")}</h2>
+      <ul class="mt-4 space-y-3 text-sm text-steel">
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-brand-500" aria-hidden="true">✓</span>
+          {t("billingCan1")}
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-brand-500" aria-hidden="true">✓</span>
+          {t("billingCan2")}
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-brand-500" aria-hidden="true">✓</span>
+          {t("billingCan3")}
+        </li>
+      </ul>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      <div class="rounded-2xl border border-brand-200 bg-brand-50 p-6">
+        <h2 class="text-base font-semibold text-gray-900">
+          {t("billingEmailTitle")}
+        </h2>
+        <p class="mt-3 text-sm text-steel">{t("billingEmailText")}</p>
+      </div>
+
+      <div class="rounded-2xl border border-gray-200 bg-white p-6">
+        <h2 class="text-base font-semibold text-gray-900">
+          {t("billingPortalTitle")}
+        </h2>
+        {
+          hasPortalUrl ? (
+            <>
+              <p class="mt-3 text-sm text-steel">{t("billingPortalText")}</p>
+              <a
+                href={portalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-5 inline-flex items-center rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-600"
+              >
+                {t("billingPortalBtn")}
+              </a>
+            </>
+          ) : (
+            <p class="mt-3 text-sm text-steel">
+              {t("billingPortalHintNoUrl")}{" "}
+              <a
+                href={`mailto:${SALES_EMAIL}`}
+                class="font-medium text-brand-600 underline hover:text-brand-700"
+              >
+                {SALES_EMAIL}
+              </a>
+            </p>
+          )
+        }
+      </div>
+    </div>
+
+    <p class="mt-10 text-sm text-steel">
+      {t("billingSupportText")}{" "}
+      <a
+        href={`mailto:${SALES_EMAIL}`}
+        class="font-medium text-brand-600 underline hover:text-brand-700"
+        >{SALES_EMAIL}</a
+      >.
+    </p>
+
+    <p class="mt-6 border-t border-gray-200 pt-6 text-xs text-gray-400">
+      {t("billingPrivacyNote")}{" "}
+      <a
+        href={localizedPath(lang, "/datenschutz")}
+        class="underline hover:text-gray-600">{t("billingPrivacyLink")}</a
+      >.
+    </p>
+  </section>
+</BaseLayout>

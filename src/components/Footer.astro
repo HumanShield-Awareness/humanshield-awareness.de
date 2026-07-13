@@ -10,12 +10,6 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const year = new Date().getFullYear();
-
-/**
- * TODO: Sobald das Paddle-Kundenportal eingerichtet ist, die von Paddle
- * bereitgestellte Portal-URL hier eintragen (Konvention aus CLAUDE.md).
- */
-const PADDLE_PORTAL_URL = "#";
 ---
 
 <footer class="border-t border-gray-100 bg-gray-50">
@@ -56,8 +50,9 @@ const PADDLE_PORTAL_URL = "#";
             >
           </li>
           <li>
-            <a href={PADDLE_PORTAL_URL} class="text-steel hover:text-gray-900"
-              >{t("footerManageBilling")}</a
+            <a
+              href={localizedPath(lang, "/rechnungen")}
+              class="text-steel hover:text-gray-900">{t("footerManageBilling")}</a
             >
           </li>
           <li>

@@ -120,6 +120,24 @@ body {
   border: 1px solid rgba(240, 89, 31, 0.25);
 }
 
+/* ---------- Mermaid-Diagramme (Datenschutz, AGB) ---------- */
+/* Vor dem Rendern: kein Code-Block-Look, sondern unauffällig zentriert.
+   Prose würde <pre> sonst als dunklen Code-Kasten stylen. */
+.prose pre.mermaid {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  margin: 2rem auto;
+  text-align: center;
+  overflow-x: auto;
+  /* Roh-Definition bis zum Rendern ausblenden (verhindert Text-Flash) */
+  font-size: 0;
+}
+.prose pre.mermaid svg {
+  height: auto;
+  max-width: 100%;
+}
+
 /* ---------- Scroll-Reveal-Animationen (IntersectionObserver im Layout) ---------- */
 .reveal {
   opacity: 0;

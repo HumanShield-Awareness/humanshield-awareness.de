@@ -1,7 +1,9 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import remarkMermaid from "./src/lib/remark-mermaid.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,7 +20,21 @@ export default defineConfig({
     // (Browsersprache erkennen, sonst DE).
     routing: { prefixDefaultLocale: true, redirectToDefaultLocale: false },
   },
-  integrations: [react()],
+  // ```mermaid-Codeblöcke zu clientseitig gerenderten Diagrammen machen
+  markdown: {
+    remarkPlugins: [remarkMermaid],
+  },
+  integrations: [
+    react(),
+    // Erzeugt sitemap-index.xml + sitemap-0.xml für die Google-Indexierung,
+    // inkl. hreflang-Alternates für die DE/EN-Sprachvarianten.
+    sitemap({
+      i18n: {
+        defaultLocale: "de",
+        locales: { de: "de", en: "en" },
+      },
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

@@ -1,0 +1,33 @@
+---
+/**
+ * Rendert clientseitig alle `<pre class="mermaid">`-Blöcke zu SVG.
+ * mermaid.js wird lokal gebündelt (kein externer Request) und nur geladen,
+ * wenn die Seite tatsächlich ein Diagramm enthält. Einbinden auf Seiten mit
+ * Mermaid-Diagrammen (Datenschutz, AGB).
+ */
+---
+
+<script>
+  const nodes = document.querySelectorAll("pre.mermaid");
+  if (nodes.length > 0) {
+    const { default: mermaid } = await import("mermaid");
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      fontFamily: "Roboto, ui-sans-serif, system-ui, sans-serif",
+      theme: "base",
+      themeVariables: {
+        primaryColor: "#fff3ec",
+        primaryBorderColor: "#f0591f",
+        primaryTextColor: "#17191f",
+        secondaryColor: "#f5f6f8",
+        secondaryBorderColor: "#c2c7d0",
+        tertiaryColor: "#ffffff",
+        tertiaryBorderColor: "#dee0e6",
+        lineColor: "#8c929e",
+        fontSize: "14px",
+      },
+    });
+    await mermaid.run({ nodes });
+  }
+</script>

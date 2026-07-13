@@ -76,6 +76,32 @@ export const ui = {
     // ── Preisseite ───────────────────────────────────────────────────────
     faqStillQuestions: "Noch Fragen? Schreiben Sie uns an",
 
+    // ── Rechnungen & Abo verwalten (/rechnungen) ─────────────────────────
+    billingEyebrow: "Kundenportal",
+    billingTitle: "Rechnungen & Abo verwalten",
+    billingIntro:
+      "Der Kauf und die Abrechnung Ihrer HumanShield-Lizenz laufen über unseren Zahlungsdienstleister Paddle (Merchant of Record). Rechnungen, Zahlungsmethode und Ihr Abonnement verwalten Sie deshalb direkt im Paddle-Kundenportal.",
+    billingCanTitle: "Im Kundenportal können Sie:",
+    billingCan1: "Vergangene Zahlungen einsehen und Rechnungen/Belege herunterladen",
+    billingCan2: "Ihre Zahlungsmethode aktualisieren",
+    billingCan3: "Ihr Abonnement einsehen und kündigen",
+    billingEmailTitle: "Am einfachsten: über Ihre Paddle-E-Mail",
+    billingEmailText:
+      "Jede Kaufbestätigung und Rechnung von Paddle enthält bereits einen direkten „Verwalten“-Link zu Ihrem Abonnement. Öffnen Sie einfach die letzte Paddle-E-Mail und folgen Sie dem Link – kein Passwort nötig.",
+    billingPortalTitle: "Oder direkt über das Kundenportal",
+    billingPortalText:
+      "Rufen Sie das Paddle-Kundenportal auf und geben Sie die beim Kauf verwendete E-Mail-Adresse ein. Paddle sendet Ihnen einen sicheren Anmeldelink per E-Mail.",
+    billingPortalBtn: "Zum Paddle-Kundenportal",
+    billingPortalHintNoUrl:
+      "Nutzen Sie bitte den „Verwalten“-Link aus Ihrer Paddle-Rechnungs-E-Mail. Alternativ helfen wir Ihnen gerne weiter:",
+    billingSupportText: "Sie finden Ihre E-Mail nicht oder brauchen Hilfe? Schreiben Sie uns an",
+    billingPrivacyNote:
+      "Bestell- und Zahlungsdaten verarbeitet Paddle als eigenständiger Verantwortlicher. Details in unserer",
+    billingPrivacyLink: "Datenschutzerklärung",
+    metaBillingTitle: "Rechnungen & Abo verwalten – HumanShield Awareness",
+    metaBillingDesc:
+      "Verwalten Sie Ihre HumanShield-Rechnungen und Ihr Abonnement über das Paddle-Kundenportal: Belege herunterladen, Zahlungsmethode ändern, Abo kündigen.",
+
     // ── Meta / SEO ───────────────────────────────────────────────────────
     metaHomeTitle: "HumanShield Awareness – Security Awareness, die wirkt",
     metaDefaultDesc:
@@ -187,6 +213,32 @@ export const ui = {
 
     // ── Pricing page ─────────────────────────────────────────────────────
     faqStillQuestions: "Still have questions? Write to us at",
+
+    // ── Manage invoices & subscription (/rechnungen) ─────────────────────
+    billingEyebrow: "Customer portal",
+    billingTitle: "Manage invoices & subscription",
+    billingIntro:
+      "Purchases and billing for your HumanShield license are handled by our payment provider Paddle (Merchant of Record). You therefore manage invoices, payment method and your subscription directly in the Paddle customer portal.",
+    billingCanTitle: "In the customer portal you can:",
+    billingCan1: "View past payments and download invoices/receipts",
+    billingCan2: "Update your payment method",
+    billingCan3: "View and cancel your subscription",
+    billingEmailTitle: "Easiest: via your Paddle email",
+    billingEmailText:
+      "Every purchase confirmation and invoice from Paddle already contains a direct “Manage” link to your subscription. Just open your latest Paddle email and follow the link – no password needed.",
+    billingPortalTitle: "Or directly via the customer portal",
+    billingPortalText:
+      "Open the Paddle customer portal and enter the email address you used at checkout. Paddle will send you a secure sign-in link by email.",
+    billingPortalBtn: "Go to the Paddle customer portal",
+    billingPortalHintNoUrl:
+      "Please use the “Manage” link from your Paddle invoice email. Alternatively, we're happy to help:",
+    billingSupportText: "Can't find your email or need help? Write to us at",
+    billingPrivacyNote:
+      "Order and payment data is processed by Paddle as an independent controller. Details in our",
+    billingPrivacyLink: "privacy policy",
+    metaBillingTitle: "Manage invoices & subscription – HumanShield Awareness",
+    metaBillingDesc:
+      "Manage your HumanShield invoices and subscription via the Paddle customer portal: download receipts, change payment method, cancel your subscription.",
 
     // ── Meta / SEO ───────────────────────────────────────────────────────
     metaHomeTitle: "HumanShield Awareness – Security awareness that works",
