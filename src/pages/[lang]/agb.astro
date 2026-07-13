@@ -1,6 +1,7 @@
 ---
 import { getEntry, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Mermaid from "../../components/Mermaid.astro";
 import { useTranslations } from "../../i18n/utils";
 import { type Lang } from "../../i18n/ui";
 
@@ -26,4 +27,5 @@ const { Content } = await render(seite);
       <Content />
     </div>
   </section>
+  <Mermaid />
 </BaseLayout>

@@ -37,6 +37,18 @@ export const CHECKOUT_ENABLED = false;
 /** Kontakt für Vertriebs-/Enterprise-Anfragen */
 export const SALES_EMAIL = "support@humanshield.app";
 
+/**
+ * Statischer Link zum Paddle-Kundenportal (Merchant of Record). Über diese
+ * kontospezifische URL verwalten Kunden Rechnungen & Abos selbst: E-Mail
+ * eingeben → Paddle sendet einen Magic-Link → eingeloggt. Kein eigenes Backend
+ * nötig (siehe /rechnungen-Seite). Form: https://customer-portal.paddle.com/cpl_…
+ * Solange leer, verweist die Seite nur auf den „Verwalten“-Link in den
+ * Paddle-Rechnungs-E-Mails. Die konkrete cpl_-URL steht in jeder Paddle-Beleg-
+ * E-Mail bzw. im Paddle-Dashboard.
+ */
+export const PADDLE_CUSTOMER_PORTAL_URL =
+  "https://customer-portal.paddle.com/cpl_01kwz052rj8tc6gztzrxce9p5f";
+
 /** Enterprise ist ein Upgrade auf Business: fester Aufschlag von +40 %. */
 export const ENTERPRISE_SURCHARGE = 0.4;
 
