@@ -46,7 +46,8 @@ export const SALES_EMAIL = "support@humanshield.app";
  * Paddle-Rechnungs-E-Mails. Die konkrete cpl_-URL steht in jeder Paddle-Beleg-
  * E-Mail bzw. im Paddle-Dashboard.
  */
-export const PADDLE_CUSTOMER_PORTAL_URL = "";
+export const PADDLE_CUSTOMER_PORTAL_URL =
+  "https://customer-portal.paddle.com/cpl_01kwz052rj8tc6gztzrxce9p5f";
 
 /** Enterprise ist ein Upgrade auf Business: fester Aufschlag von +40 %. */
 export const ENTERPRISE_SURCHARGE = 0.4;
