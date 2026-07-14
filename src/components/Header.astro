@@ -1,5 +1,5 @@
 ---
-import { GITHUB_REPO_URL } from "../lib/pricing";
+import { GITHUB_REPO_URL, DOCS_URL } from "../lib/pricing";
 import { useTranslations, localizedPath, switchLangPath } from "../i18n/utils";
 import { languages, type Lang } from "../i18n/ui";
 
@@ -14,6 +14,7 @@ const nav = [
   { label: t("navHowItWorks"), href: localizedPath(lang, "/#so-funktionierts") },
   { label: t("navPricing"), href: localizedPath(lang, "/preise") },
   { label: t("navCalculator"), href: localizedPath(lang, "/preise#preisrechner") },
+  { label: t("navDocs"), href: DOCS_URL, external: true },
 ];
 
 const langCodes = Object.keys(languages) as Lang[];
@@ -40,6 +41,8 @@ const langCodes = Object.keys(languages) as Lang[];
         nav.map((item) => (
           <a
             href={item.href}
+            target={item.external ? "_blank" : undefined}
+            rel={item.external ? "noopener noreferrer" : undefined}
             class="text-sm font-medium text-steel transition-colors hover:text-gray-900"
           >
             {item.label}
@@ -123,6 +126,8 @@ const langCodes = Object.keys(languages) as Lang[];
         nav.map((item) => (
           <a
             href={item.href}
+            target={item.external ? "_blank" : undefined}
+            rel={item.external ? "noopener noreferrer" : undefined}
             class="rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
           >
             {item.label}

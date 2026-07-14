@@ -23,6 +23,9 @@ export const GITHUB_ORG_URL = "https://github.com/HumanShield-Awareness";
 /** GitHub-Hauptrepository der HumanShield-Software */
 export const GITHUB_REPO_URL = "https://github.com/HumanShield-Awareness/HumanShield.APP";
 
+/** Externe Dokumentation (eigene Subdomain) */
+export const DOCS_URL = "https://docs.humanshield.app";
+
 /**
  * Verkaufs-Schalter. Solange `false`, ist KEIN Kaufprozess möglich:
  * Preiskarten und Preisrechner zeigen ein „Bald verfügbar“-Overlay und der
