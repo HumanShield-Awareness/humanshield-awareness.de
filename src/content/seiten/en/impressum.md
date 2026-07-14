@@ -87,7 +87,6 @@ This website is operated by **[ORGANISATION]**. Despite careful review, no liabi
 
 ## Data protection officer (GDPR)
 
-**Data protection officer:** [OPTIONAL]
 **Data protection contact:**
 - Email: legal@humanshield.app
 - In writing: HumanShield Awareness UG, Lindental 8d, 94032 Passau
@@ -140,7 +139,3 @@ This legal notice applies to:
 - **GitHub:** https://github.com/HumanShield-Awareness/HumanShield.APP (Open Core)
 - **Support:** support@humanshield.app
 
----
-
-**Last updated:** [DATE]
-**Version:** 1.0
