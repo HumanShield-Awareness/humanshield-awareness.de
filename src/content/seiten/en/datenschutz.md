@@ -12,7 +12,7 @@ Have the final English wording reviewed by legal counsel before going live.
 
 *This English translation is provided for convenience only. The legally binding version is the [German original](/de/datenschutz).*
 
-**HumanShield – humanshield.app / humanshield-awareness.de and its services**
+**SentryMail – sentrymail.de and its services**
 
 **Version:** 1.0
 **As of:** 11 July 2026
@@ -24,12 +24,12 @@ Have the final English wording reviewed by legal counsel before going live.
 The controller within the meaning of the General Data Protection Regulation (GDPR) for the processing of personal data on this website and in the context of license management is:
 
 ```
-HumanShield Awareness UG (haftungsbeschränkt) in formation
+SecureBits Cyber Security UG (haftungsbeschränkt) in formation
 Lindental 8d
 94032 Passau
 Germany
 
-Email: legal@humanshield.app
+Email: legal@sentrymail.de
 ```
 
 Further information: see the [legal notice](/en/impressum).
@@ -40,7 +40,7 @@ A data protection officer is [not appointed, as not legally required / appointed
 
 ## 2. Overview: where do we process which data?
 
-**Important note in advance — self-hosting principle:** The HumanShield software is operated by our customers **on their own infrastructure**. All training, simulation and employee data remains **entirely with the customer**. We have **no access** to this data and do **not** process it.
+**Important note in advance — self-hosting principle:** The SentryMail software is operated by our customers **on their own infrastructure**. All training, simulation and employee data remains **entirely with the customer**. We have **no access** to this data and do **not** process it.
 
 We process personal data in only four contexts:
 
@@ -67,7 +67,7 @@ graph TD
 
 ---
 
-## 3. Website visit (humanshield.app / humanshield-awareness.de)
+## 3. Website visit (sentrymail.de)
 
 ### 3.1 Hosting and delivery via Cloudflare
 
@@ -107,7 +107,7 @@ Since only technically necessary cookies are used, no cookie consent banner is r
 
 ## 4. Contacting us
 
-If you contact us by email (support@humanshield.app) or via a contact form, we process the data you provide (name, email address, company, content of the request).
+If you contact us by email (support@sentrymail.de) or via a contact form, we process the data you provide (name, email address, company, content of the request).
 
 **Purpose:** processing and answering your request; initiating or performing a contract.
 
@@ -121,7 +121,7 @@ If you contact us by email (support@humanshield.app) or via a contact form, we p
 
 ### 5.1 Paddle as an independent controller
 
-The purchase of HumanShield licenses is made via **Paddle** as **Merchant of Record (reseller)**:
+The purchase of SentryMail licenses is made via **Paddle** as **Merchant of Record (reseller)**:
 
 > Paddle.com Market Ltd., Judd House, 18-29 Mora Street, London EC1V 8BT, United Kingdom
 > (for buyers outside Europe, possibly Paddle.com Inc., USA)
@@ -156,7 +156,7 @@ After a purchase, renewal or cancellation, Paddle transmits the data required fo
 
 ### 6.1 How it works
 
-The HumanShield software installed at the customer's premises validates its license **online against our license server**. This server is operated on a **Hostinger** server (Švitrigailos str. 34, Vilnius 03230 Lithuania) in a **German data center** and is hardened according to **BSI IT-Grundschutz principles** (including access control, logging, encryption of transmission via TLS).
+The SentryMail software installed at the customer's premises validates its license **online against our license server**. This server is operated on a **Hostinger** server (Švitrigailos str. 34, Vilnius 03230 Lithuania) in a **German data center** and is hardened according to **BSI IT-Grundschutz principles** (including access control, logging, encryption of transmission via TLS).
 
 ### 6.2 Data processed
 
@@ -188,7 +188,7 @@ Employees of customer companies who have questions about a phishing simulation o
 
 ## 7. Open-core variant and GitHub
 
-The free open-core variant is provided via **GitHub** (GitHub, Inc., USA — organization *HumanShield Awareness UG*). When accessing GitHub (download, issues, pull requests), the GitHub privacy policy applies: https://docs.github.com/privacy
+The free open-core variant is provided via **GitHub** (GitHub, Inc., USA — organization *securebits-cyber*). When accessing GitHub (download, issues, pull requests), the GitHub privacy policy applies: https://docs.github.com/privacy
 
 If you create issues or make contributions there, GitHub processes your account data under its own responsibility; we see the content you post publicly.
 
@@ -232,7 +232,7 @@ You have the following rights:
 | **Objection** to processing based on Art. 6(1)(f) GDPR | Art. 21 GDPR |
 | Withdrawal of consent given, with effect for the future | Art. 7(3) GDPR |
 
-**Exercising your rights:** informally to **legal@humanshield.app**. We respond within one month (Art. 12(3) GDPR).
+**Exercising your rights:** informally to **legal@sentrymail.de**. We respond within one month (Art. 12(3) GDPR).
 
 **Note:** For order and payment data that Paddle processes as an independent controller, please direct data subject requests (also) directly to Paddle: https://www.paddle.com/legal/privacy — we forward requests addressed to us where necessary.
 

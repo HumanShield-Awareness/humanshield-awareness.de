@@ -8,7 +8,7 @@ title: Impressum
 
 ## Betreiber der Website
 
-**Firmenname:** HumanShield Awareness 
+**Firmenname:** SecureBits Cyber Security 
 **Rechtsform:** UG (haftungsbegrenzt) in Gründung
 
 **Adresse (Geschäftssitz):**
@@ -19,18 +19,18 @@ Deutschland
 
 
 **Vertreter:**
-- **Name:** Marcel Dellmann
+- **Name:** Aurel Louis Hintzen
 
 **Kontakt:**
-- **E-Mail:** legal@humanshield.app
-- **Website:** humanshield.app / humanshield-awareness.de
+- **E-Mail:** legal@sentrymail.de
+- **Website:** sentrymail.de
 
 
 ---
 
 ## Vertretung und Haftung
 
-Diese Website wird betrieben von **HumanShield Awareness UG**. Für die Korrektheit und Vollständigkeit der Inhalte wird trotz sorgfältiger Prüfung keine Haftung übernommen, insoweit dies gesetzlich zulässig ist. 
+Diese Website wird betrieben von **SecureBits Cyber Security UG**. Für die Korrektheit und Vollständigkeit der Inhalte wird trotz sorgfältiger Prüfung keine Haftung übernommen, insoweit dies gesetzlich zulässig ist. 
 
 **Haftungsausschluss:**
 - Inhalte dieser Website dienen nur zu Informationszwecken
@@ -48,7 +48,7 @@ Diese Website wird betrieben von **HumanShield Awareness UG**. Für die Korrekth
   - Für Fragen zu Zahlungen/Rechnungen: [support@paddle.com](https://support.paddle.com)
   - Paddle-Datenschutz: https://www.paddle.com/privacy
 
-**Hinweis:** HumanShield Awareness UG erhält von Paddle nur pseudonymisierte Zahlungsbestätigungen. Die vollständige Zahlungsabwicklung erfolgt durch Paddle als unabhängiger Zahlungsdienstleister.
+**Hinweis:** SecureBits Cyber Security UG erhält von Paddle nur pseudonymisierte Zahlungsbestätigungen. Die vollständige Zahlungsabwicklung erfolgt durch Paddle als unabhängiger Zahlungsdienstleister.
 
 ---
 
@@ -81,8 +81,8 @@ Diese Website wird betrieben von **HumanShield Awareness UG**. Für die Korrekth
 
 **Datenschutzbeauftragter:** [OPTIONAL]  
 **Kontakt Datenschutz:**
-- E-Mail: legal@humanshield.app
-- Schriftlich: HumanShield Awareness UG, Lindental 8d, 94032 Passau
+- E-Mail: legal@sentrymail.de
+- Schriftlich: SecureBits Cyber Security UG, Lindental 8d, 94032 Passau
 
 **Zuständige Aufsichtsbehörde (DSGVO):**
 - **Deutschland:** Landesamt für Datenschutzaufsicht (LfDA) des Bundeslandes
@@ -117,8 +117,7 @@ Diese Website und der Lizenzierungsdienst befolgen:
 
 **Geltungsbereich:**
 Dieses Impressum gilt für:
-- humanshield.app
-- humanshield-awareness.de
+- sentrymail.de
 - alle assoziierte Subdomänen
 
 **Änderungen:** Änderungen dieses Impressums werden ohne Ankündigung aktualisiert.
@@ -129,8 +128,8 @@ Dieses Impressum gilt für:
 
 ## Links & Externe Ressourcen
 
-- **GitHub:** https://github.com/HumanShield-Awareness/HumanShield.APP (Open Core)
-- **Support:** support@humanshield.app
+- **GitHub:** https://github.com/securebits-cyber/SentryMail (Open Core)
+- **Support:** support@sentrymail.de
 
 ---
 

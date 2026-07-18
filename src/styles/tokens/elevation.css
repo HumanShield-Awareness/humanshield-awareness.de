@@ -1,4 +1,4 @@
-/* HumanShield — effects.
+/* SentryMail — effects.
  * Shadow / glow / inset tokens live in colors.css so they can be theme-scoped
  * (light vs .hs-dark). This file keeps only the backdrop blur for overlays/nav.
  */

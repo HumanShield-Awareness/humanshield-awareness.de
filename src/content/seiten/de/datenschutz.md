@@ -4,7 +4,7 @@ title: Datenschutzerklärung
 
 # Datenschutzerklärung
 
-**HumanShield – humanshield.app / humanshield-awareness.de und dessen Dienste**
+**SentryMail – sentrymail.de und dessen Dienste**
 
 **Version:** 1.0
 **Stand:** 11.07.2026
@@ -16,12 +16,12 @@ title: Datenschutzerklärung
 Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) für die Verarbeitung personenbezogener Daten auf dieser Website und im Rahmen der Lizenzverwaltung ist:
 
 ```
-HumanShield Awareness UG (haftungsbeschränkt) in Gründung
+SecureBits Cyber Security UG (haftungsbeschränkt) in Gründung
 Lindental 8d
 94032 Passau
 Deutschland
 
-E-Mail: legal@humanshield.app
+E-Mail: legal@sentrymail.de
 ```
 
 Weitere Angaben: siehe [Impressum](./impressum.md).
@@ -31,7 +31,7 @@ Weitere Angaben: siehe [Impressum](./impressum.md).
 
 ## 2. Überblick: Wo verarbeiten wir welche Daten?
 
-**Wichtig vorab — Self-Hosted-Prinzip:** Die HumanShield-Software wird von unseren Kunden **auf eigener Infrastruktur** betrieben. Sämtliche Trainings-, Simulations- und Mitarbeiterdaten verbleiben **vollständig beim Kunden**. Wir haben darauf **keinen Zugriff** und verarbeiten diese Daten **nicht**.
+**Wichtig vorab — Self-Hosted-Prinzip:** Die SentryMail-Software wird von unseren Kunden **auf eigener Infrastruktur** betrieben. Sämtliche Trainings-, Simulations- und Mitarbeiterdaten verbleiben **vollständig beim Kunden**. Wir haben darauf **keinen Zugriff** und verarbeiten diese Daten **nicht**.
 
 Wir verarbeiten personenbezogene Daten nur in vier Zusammenhängen:
 
@@ -58,7 +58,7 @@ graph TD
 
 ---
 
-## 3. Website-Besuch (humanshield.app / humanshield-awareness.de)
+## 3. Website-Besuch (sentrymail.de)
 
 ### 3.1 Hosting und Auslieferung über Cloudflare
 
@@ -98,7 +98,7 @@ Da ausschließlich technisch erforderliche Cookies eingesetzt werden, ist kein C
 
 ## 4. Kontaktaufnahme
 
-Bei Kontaktaufnahme per E-Mail (support@humanshield.app) oder über ein Kontaktformular verarbeiten wir die von Ihnen mitgeteilten Daten (Name, E-Mail-Adresse, Unternehmen, Inhalt der Anfrage).
+Bei Kontaktaufnahme per E-Mail (support@sentrymail.de) oder über ein Kontaktformular verarbeiten wir die von Ihnen mitgeteilten Daten (Name, E-Mail-Adresse, Unternehmen, Inhalt der Anfrage).
 
 **Zweck:** Bearbeitung und Beantwortung Ihrer Anfrage; Anbahnung oder Durchführung eines Vertrags.
 
@@ -112,7 +112,7 @@ Bei Kontaktaufnahme per E-Mail (support@humanshield.app) oder über ein Kontaktf
 
 ### 5.1 Paddle als eigenständiger Verantwortlicher
 
-Der Erwerb von HumanShield-Lizenzen erfolgt über **Paddle** als **Merchant of Record (Reseller)**:
+Der Erwerb von SentryMail-Lizenzen erfolgt über **Paddle** als **Merchant of Record (Reseller)**:
 
 > Paddle.com Market Ltd., Judd House, 18-29 Mora Street, London EC1V 8BT, Vereinigtes Königreich
 > (für Käufer außerhalb Europas ggf. Paddle.com Inc., USA)
@@ -147,7 +147,7 @@ Nach einem Kauf, einer Verlängerung oder einer Kündigung übermittelt Paddle a
 
 ### 6.1 Funktionsweise
 
-Die beim Kunden installierte HumanShield-Software validiert ihre Lizenz **online gegen unseren Lizenzserver**. Dieser wird auf einem Server der **Hostinger** (Švitrigailos str. 34, Vilnius 03230 Litauen) in einem **deutschen Rechenzentrum** betrieben und ist nach **BSI IT-Grundschutz-Prinzipien** gehärtet (u.a. Zugriffskontrolle, Protokollierung, Verschlüsselung der Übertragung per TLS).
+Die beim Kunden installierte SentryMail-Software validiert ihre Lizenz **online gegen unseren Lizenzserver**. Dieser wird auf einem Server der **Hostinger** (Švitrigailos str. 34, Vilnius 03230 Litauen) in einem **deutschen Rechenzentrum** betrieben und ist nach **BSI IT-Grundschutz-Prinzipien** gehärtet (u.a. Zugriffskontrolle, Protokollierung, Verschlüsselung der Übertragung per TLS).
 
 ### 6.2 Verarbeitete Daten
 
@@ -179,7 +179,7 @@ Mitarbeitende von Kundenunternehmen, die Fragen zu einer Phishing-Simulation ode
 
 ## 7. Open-Core-Variante und GitHub
 
-Die kostenlose Open-Core-Variante wird über **GitHub** (GitHub, Inc., USA — Organisation *HumanShield Awareness UG*) bereitgestellt. Beim Zugriff auf GitHub (Download, Issues, Pull Requests) gilt die Datenschutzerklärung von GitHub: https://docs.github.com/privacy
+Die kostenlose Open-Core-Variante wird über **GitHub** (GitHub, Inc., USA — Organisation *securebits-cyber*) bereitgestellt. Beim Zugriff auf GitHub (Download, Issues, Pull Requests) gilt die Datenschutzerklärung von GitHub: https://docs.github.com/privacy
 
 Wenn Sie dort Issues erstellen oder Beiträge leisten, verarbeitet GitHub Ihre Account-Daten in eigener Verantwortung; wir sehen die von Ihnen öffentlich geposteten Inhalte.
 
@@ -223,7 +223,7 @@ Ihnen stehen folgende Rechte zu:
 | **Widerspruch** gegen Verarbeitungen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO | Art. 21 DSGVO |
 | Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft | Art. 7 Abs. 3 DSGVO |
 
-**Ausübung:** formlos an **legal@humanshield.app**. Wir antworten innerhalb eines Monats (Art. 12 Abs. 3 DSGVO).
+**Ausübung:** formlos an **legal@sentrymail.de**. Wir antworten innerhalb eines Monats (Art. 12 Abs. 3 DSGVO).
 
 **Hinweis:** Für Bestell- und Zahlungsdaten, die Paddle als eigenständiger Verantwortlicher verarbeitet, richten Sie Betroffenenanfragen bitte (auch) direkt an Paddle: https://www.paddle.com/legal/privacy — wir leiten an uns gerichtete Anfragen bei Bedarf weiter.
 

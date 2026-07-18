@@ -4,11 +4,11 @@ title: AGB
 
 # Allgemeine Geschäftsbedingungen (AGB) & Lizenzbedingungen
 
-**HumanShield – Phishing-Awareness-Training (Self-Hosted)**
+**SentryMail – Phishing-Awareness-Training (Self-Hosted)**
 
 **Version:** 1.0
 **Gültig ab:** 11.07.2026
-**Anbieter/Lizenzgeber:** HumanShield Awareness UG (haftungsbeschränkt), Lindental 8d, 94032 Passau (siehe [Impressum](./impressum.md))
+**Anbieter/Lizenzgeber:** SecureBits Cyber Security UG (haftungsbeschränkt), Lindental 8d, 94032 Passau (siehe [Impressum](./impressum.md))
 
 ---
 
@@ -16,7 +16,7 @@ title: AGB
 
 ### 1.1 Geltungsbereich
 
-Diese AGB regeln die Lizenzierung und Nutzung der Software **HumanShield** in den kostenpflichtigen Varianten (Business-Lizenz und Enterprise-Add-on) sowie ergänzend die Nutzung der kostenlosen Open-Core-Variante.
+Diese AGB regeln die Lizenzierung und Nutzung der Software **SentryMail** in den kostenpflichtigen Varianten (Business-Lizenz und Enterprise-Add-on) sowie ergänzend die Nutzung der kostenlosen Open-Core-Variante.
 
 Die Software wird ausschließlich als **Self-Hosted-Lösung** bereitgestellt: Der Kunde installiert und betreibt die Software **auf eigener Infrastruktur**. Der Anbieter erbringt **keine SaaS-, Hosting- oder Betriebsleistungen**.
 
@@ -86,7 +86,7 @@ Entgegenstehende oder abweichende Einkaufsbedingungen des Kunden finden keine An
 
 Der jeweils aktuelle und verbindliche Funktionsumfang der einzelnen Varianten ist auf der Produktwebsite einsehbar:
 
-> **https://humanshield-awareness.de**
+> **https://sentrymail.de**
 
 Maßgeblich ist der dort zum Zeitpunkt des Lizenzerwerbs bzw. der Verlängerung dokumentierte Funktionsumfang. Der Anbieter behält sich vor, den Funktionsumfang weiterzuentwickeln; § 10.2 (wesentliche Änderungen) bleibt unberührt.
 
@@ -123,7 +123,7 @@ Der Anbieter schuldet **keine Verfügbarkeit der Kundeninstallation** und keine 
 
 ### 3.1 Open Core (kostenlos)
 
-Die Open-Core-Variante wird unter der im Repository (GitHub, Organisation *HumanShield Awareness UG*) angegebenen Open-Source-Lizenz bereitgestellt. Es gilt ausschließlich der dortige Lizenztext.
+Die Open-Core-Variante wird unter der im Repository (GitHub, Organisation *securebits-cyber*) angegebenen Open-Source-Lizenz bereitgestellt. Es gilt ausschließlich der dortige Lizenztext.
 
 **Die Open-Core-Variante wird ohne jede Gewährleistung, Garantie oder Support-Zusage bereitgestellt ("as is").** Ansprüche auf Fehlerbehebung, Updates, Support oder bestimmte Funktionen bestehen nicht. § 8.1 gilt entsprechend.
 
@@ -143,7 +143,7 @@ Dekompilierung ist nur in den engen Grenzen des § 69e UrhG zulässig.
 
 ### 3.3 Lizenzzustellung
 
-Nach erfolgreicher Zahlung über Paddle wird der Lizenzschlüssel automatisiert an die beim Kauf angegebene E-Mail-Adresse zugestellt (Ziel: innerhalb weniger Minuten). Bei Verzögerung: support@humanshield.app.
+Nach erfolgreicher Zahlung über Paddle wird der Lizenzschlüssel automatisiert an die beim Kauf angegebene E-Mail-Adresse zugestellt (Ziel: innerhalb weniger Minuten). Bei Verzögerung: support@sentrymail.de.
 
 ### 3.4 Online-Lizenzprüfung
 
@@ -151,7 +151,7 @@ Die Software validiert die Lizenz **online gegen den Lizenzserver des Anbieters*
 
 ```mermaid
 sequenceDiagram
-    participant HS as HumanShield-Installation<br/>(Kunde, self-hosted)
+    participant HS as SentryMail-Installation<br/>(Kunde, self-hosted)
     participant LS as Lizenzserver<br/>(Anbieter)
 
     HS->>LS: Lizenzprüfung (Lizenzschlüssel, Instanz-ID)
@@ -178,7 +178,7 @@ Lizenzen werden **ausschließlich mit jährlicher Laufzeit und jährlicher Abrec
 
 ### 4.2 Preise
 
-Es gelten die zum Bestellzeitpunkt auf **https://humanshield-awareness.de** bzw. im Paddle-Checkout ausgewiesenen Preise. Preise verstehen sich netto; Umsatzsteuer wird von Paddle gemäß den anwendbaren Steuervorschriften berechnet und ausgewiesen (bei gültiger USt-IdNr. ggf. Reverse-Charge).
+Es gelten die zum Bestellzeitpunkt auf **https://sentrymail.de** bzw. im Paddle-Checkout ausgewiesenen Preise. Preise verstehen sich netto; Umsatzsteuer wird von Paddle gemäß den anwendbaren Steuervorschriften berechnet und ausgewiesen (bei gültiger USt-IdNr. ggf. Reverse-Charge).
 
 ### 4.3 Zahlungsabwicklung über Paddle
 
@@ -338,6 +338,6 @@ Preisänderungen wirken frühestens zur **nächsten Verlängerung** und werden m
 - 📄 [Impressum](./impressum.md)
 - 🔐 [Datenschutzerklärung](./datenschutz.md)
 - 🛒 Paddle Buyer Terms: https://www.paddle.com/legal/checkout-buyer-terms
-- 🌐 Funktionsübersicht: https://humanshield-awareness.de
+- 🌐 Funktionsübersicht: https://sentrymail.de
 
 ---

@@ -1,5 +1,5 @@
 @import "tailwindcss";
-/* HumanShield Design-System-Tokens (Quelle: Design/tokens/*) */
+/* SentryMail Design-System-Tokens (Quelle: Design/tokens/*) */
 @import "./tokens/colors.css";
 @import "./tokens/typography.css";
 @import "./tokens/spacing.css";
@@ -27,7 +27,7 @@
 /*
  * Tailwind-Theme auf die Design-Tokens remappen. Bestehende Utility-Klassen
  * (bg-brand-500, text-steel, text-gray-900, shadow-lg …) ziehen dadurch die
- * Werte des HumanShield-Design-Systems (Ember-Orange, Roboto, Meridian-Neutrale).
+ * Werte des SentryMail-Design-Systems (Ember-Orange, Roboto, Meridian-Neutrale).
  */
 @theme {
   --font-sans: "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI",

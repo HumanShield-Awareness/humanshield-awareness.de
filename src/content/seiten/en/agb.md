@@ -12,11 +12,11 @@ Have the final English wording reviewed by legal counsel before going live.
 
 *This English translation is provided for convenience only. The legally binding version is the [German original](/de/agb).*
 
-**HumanShield – Phishing awareness training (self-hosted)**
+**SentryMail – Phishing awareness training (self-hosted)**
 
 **Version:** 1.0
 **Effective from:** 11 July 2026
-**Provider/Licensor:** HumanShield Awareness UG (haftungsbeschränkt), Lindental 8d, 94032 Passau (see [legal notice](/en/impressum))
+**Provider/Licensor:** SecureBits Cyber Security UG (haftungsbeschränkt), Lindental 8d, 94032 Passau (see [legal notice](/en/impressum))
 
 ---
 
@@ -24,7 +24,7 @@ Have the final English wording reviewed by legal counsel before going live.
 
 ### 1.1 Scope
 
-These GTC govern the licensing and use of the **HumanShield** software in its paid variants (Business license and Enterprise add-on) as well as, additionally, the use of the free open-core variant.
+These GTC govern the licensing and use of the **SentryMail** software in its paid variants (Business license and Enterprise add-on) as well as, additionally, the use of the free open-core variant.
 
 The software is provided exclusively as a **self-hosted solution**: the customer installs and operates the software **on their own infrastructure**. The provider does **not** provide any SaaS, hosting or operational services.
 
@@ -94,7 +94,7 @@ Conflicting or deviating purchasing terms of the customer do not apply unless th
 
 The currently valid and binding scope of functions of the individual variants can be viewed on the product website:
 
-> **https://humanshield-awareness.de**
+> **https://sentrymail.de**
 
 The scope of functions documented there at the time of license acquisition or renewal is authoritative. The provider reserves the right to further develop the scope of functions; § 10.2 (material changes) remains unaffected.
 
@@ -131,7 +131,7 @@ The provider owes **no availability of the customer installation** and no operat
 
 ### 3.1 Open Core (free)
 
-The open-core variant is provided under the open-source license specified in the repository (GitHub, organization *HumanShield Awareness UG*). Only the license text there applies.
+The open-core variant is provided under the open-source license specified in the repository (GitHub, organization *securebits-cyber*). Only the license text there applies.
 
 **The open-core variant is provided without any warranty, guarantee or support commitment ("as is").** There are no claims to error correction, updates, support or specific functions. § 8.1 applies accordingly.
 
@@ -151,7 +151,7 @@ Decompilation is permitted only within the narrow limits of § 69e UrhG (German 
 
 ### 3.3 License delivery
 
-After successful payment via Paddle, the license key is delivered automatically to the email address provided at purchase (target: within a few minutes). In case of delay: support@humanshield.app.
+After successful payment via Paddle, the license key is delivered automatically to the email address provided at purchase (target: within a few minutes). In case of delay: support@sentrymail.de.
 
 ### 3.4 Online license check
 
@@ -159,7 +159,7 @@ The software validates the license **online against the provider's license serve
 
 ```mermaid
 sequenceDiagram
-    participant HS as HumanShield installation<br/>(customer, self-hosted)
+    participant HS as SentryMail installation<br/>(customer, self-hosted)
     participant LS as License server<br/>(provider)
 
     HS->>LS: License check (license key, instance ID)
@@ -186,7 +186,7 @@ Licenses are offered **exclusively with an annual term and annual billing in adv
 
 ### 4.2 Prices
 
-The prices shown at the time of ordering on **https://humanshield-awareness.de** or in the Paddle checkout apply. Prices are net; VAT is calculated and shown by Paddle in accordance with the applicable tax regulations (with a valid VAT ID, reverse charge may apply).
+The prices shown at the time of ordering on **https://sentrymail.de** or in the Paddle checkout apply. Prices are net; VAT is calculated and shown by Paddle in accordance with the applicable tax regulations (with a valid VAT ID, reverse charge may apply).
 
 ### 4.3 Payment processing via Paddle
 
@@ -346,4 +346,4 @@ Price changes take effect at the earliest from the **next renewal** and are anno
 - 📄 [Legal notice](/en/impressum)
 - 🔐 [Privacy policy](/en/datenschutz)
 - 🛒 Paddle Buyer Terms: https://www.paddle.com/legal/checkout-buyer-terms
-- 🌐 Feature overview: https://humanshield-awareness.de
+- 🌐 Feature overview: https://sentrymail.de

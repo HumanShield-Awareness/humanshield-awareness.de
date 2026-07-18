@@ -7,6 +7,6 @@ ctaSecondary: View on GitHub
 note: Built & sold in Germany · GDPR-compliant · NIS2-ready
 ---
 
-HumanShield turns your employees into your strongest line of defense:
+SentryMail turns your employees into your strongest line of defense:
 realistic phishing simulations, training with real "aha" moments, and reporting
 that makes progress visible.
