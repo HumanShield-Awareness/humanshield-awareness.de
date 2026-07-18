@@ -51,7 +51,7 @@ export const ui = {
     madeInGermanyBadge: "Made in Germany",
 
     heroImageAlt:
-      "HumanShield Control-Center: Dashboard mit Kampagnen-Übersicht, Risikobewertung und Auswertungen",
+      "SentryMail Control-Center: Dashboard mit Kampagnen-Übersicht, Risikobewertung und Auswertungen",
 
     // ── Mono-Eyebrows (Overlines, werden per CSS in GROSSBUCHSTABEN gesetzt) ─
     heroEyebrow: "Security Awareness, die wirkt",
@@ -81,7 +81,7 @@ export const ui = {
     billingEyebrow: "Kundenportal",
     billingTitle: "Rechnungen & Abo verwalten",
     billingIntro:
-      "Der Kauf und die Abrechnung Ihrer HumanShield-Lizenz laufen über unseren Zahlungsdienstleister Paddle (Merchant of Record). Rechnungen, Zahlungsmethode und Ihr Abonnement verwalten Sie deshalb direkt im Paddle-Kundenportal.",
+      "Der Kauf und die Abrechnung Ihrer SentryMail-Lizenz laufen über unseren Zahlungsdienstleister Paddle (Merchant of Record). Rechnungen, Zahlungsmethode und Ihr Abonnement verwalten Sie deshalb direkt im Paddle-Kundenportal.",
     billingCanTitle: "Im Kundenportal können Sie:",
     billingCan1: "Vergangene Zahlungen einsehen und Rechnungen/Belege herunterladen",
     billingCan2: "Ihre Zahlungsmethode aktualisieren",
@@ -99,21 +99,21 @@ export const ui = {
     billingPrivacyNote:
       "Bestell- und Zahlungsdaten verarbeitet Paddle als eigenständiger Verantwortlicher. Details in unserer",
     billingPrivacyLink: "Datenschutzerklärung",
-    metaBillingTitle: "Rechnungen & Abo verwalten – HumanShield Awareness",
+    metaBillingTitle: "Rechnungen & Abo verwalten – SentryMail",
     metaBillingDesc:
-      "Verwalten Sie Ihre HumanShield-Rechnungen und Ihr Abonnement über das Paddle-Kundenportal: Belege herunterladen, Zahlungsmethode ändern, Abo kündigen.",
+      "Verwalten Sie Ihre SentryMail-Rechnungen und Ihr Abonnement über das Paddle-Kundenportal: Belege herunterladen, Zahlungsmethode ändern, Abo kündigen.",
 
     // ── Meta / SEO ───────────────────────────────────────────────────────
-    metaHomeTitle: "HumanShield Awareness – Security Awareness, die wirkt",
+    metaHomeTitle: "SentryMail – Security Awareness, die wirkt",
     metaDefaultDesc:
-      "HumanShield Awareness – Security-Awareness-Trainings und Phishing-Simulationen, die Ihre Mitarbeitenden zur stärksten Verteidigungslinie machen. Entwickelt in Deutschland, DSGVO-konform und NIS2-ready.",
-    metaPricingTitle: "Preise – HumanShield Awareness",
+      "SentryMail – Security-Awareness-Trainings und Phishing-Simulationen, die Ihre Mitarbeitenden zur stärksten Verteidigungslinie machen. Entwickelt in Deutschland, DSGVO-konform und NIS2-ready.",
+    metaPricingTitle: "Preise – SentryMail",
     metaPricingDesc:
-      "Transparente Preise für HumanShield Awareness: kostenlose Community-Edition, Business-Jahresabo gestaffelt nach Mitarbeiterzahl und Enterprise als Upgrade (+40 %) mit White-Label, SSO und SIEM-Export.",
-    metaFeaturesTitle: "Funktionen – HumanShield Awareness",
+      "Transparente Preise für SentryMail: kostenlose Community-Edition, Business-Jahresabo gestaffelt nach Mitarbeiterzahl und Enterprise als Upgrade (+40 %) mit White-Label, SSO und SIEM-Export.",
+    metaFeaturesTitle: "Funktionen – SentryMail",
     metaFeaturesDesc:
-      "Alle Funktionen von HumanShield Awareness im Überblick: Was die kostenlose Core-Version, das Business-Add-on und das Enterprise-Add-on freischalten.",
-    titleSuffix: "HumanShield Awareness",
+      "Alle Funktionen von SentryMail im Überblick: Was die kostenlose Core-Version, das Business-Add-on und das Enterprise-Add-on freischalten.",
+    titleSuffix: "SentryMail",
 
     // ── Preiskarten (PricingTiers.tsx) ───────────────────────────────────
     popular: "Beliebt",
@@ -190,7 +190,7 @@ export const ui = {
     madeInGermanyBadge: "Made in Germany",
 
     heroImageAlt:
-      "HumanShield Control Center: dashboard with campaign overview, risk scoring and analytics",
+      "SentryMail Control Center: dashboard with campaign overview, risk scoring and analytics",
 
     // ── Mono eyebrows (overlines, uppercased via CSS) ────────────────────
     heroEyebrow: "Security awareness, done right",
@@ -220,7 +220,7 @@ export const ui = {
     billingEyebrow: "Customer portal",
     billingTitle: "Manage invoices & subscription",
     billingIntro:
-      "Purchases and billing for your HumanShield license are handled by our payment provider Paddle (Merchant of Record). You therefore manage invoices, payment method and your subscription directly in the Paddle customer portal.",
+      "Purchases and billing for your SentryMail license are handled by our payment provider Paddle (Merchant of Record). You therefore manage invoices, payment method and your subscription directly in the Paddle customer portal.",
     billingCanTitle: "In the customer portal you can:",
     billingCan1: "View past payments and download invoices/receipts",
     billingCan2: "Update your payment method",
@@ -238,21 +238,21 @@ export const ui = {
     billingPrivacyNote:
       "Order and payment data is processed by Paddle as an independent controller. Details in our",
     billingPrivacyLink: "privacy policy",
-    metaBillingTitle: "Manage invoices & subscription – HumanShield Awareness",
+    metaBillingTitle: "Manage invoices & subscription – SentryMail",
     metaBillingDesc:
-      "Manage your HumanShield invoices and subscription via the Paddle customer portal: download receipts, change payment method, cancel your subscription.",
+      "Manage your SentryMail invoices and subscription via the Paddle customer portal: download receipts, change payment method, cancel your subscription.",
 
     // ── Meta / SEO ───────────────────────────────────────────────────────
-    metaHomeTitle: "HumanShield Awareness – Security awareness that works",
+    metaHomeTitle: "SentryMail – Security awareness that works",
     metaDefaultDesc:
-      "HumanShield Awareness – security awareness training and phishing simulations that turn your employees into your strongest line of defense. Built in Germany, GDPR-compliant and NIS2-ready.",
-    metaPricingTitle: "Pricing – HumanShield Awareness",
+      "SentryMail – security awareness training and phishing simulations that turn your employees into your strongest line of defense. Built in Germany, GDPR-compliant and NIS2-ready.",
+    metaPricingTitle: "Pricing – SentryMail",
     metaPricingDesc:
-      "Transparent pricing for HumanShield Awareness: free Community edition, a Business annual subscription tiered by number of employees, and Enterprise as an upgrade (+40%) with white-label, SSO and SIEM export.",
-    metaFeaturesTitle: "Features – HumanShield Awareness",
+      "Transparent pricing for SentryMail: free Community edition, a Business annual subscription tiered by number of employees, and Enterprise as an upgrade (+40%) with white-label, SSO and SIEM export.",
+    metaFeaturesTitle: "Features – SentryMail",
     metaFeaturesDesc:
-      "All HumanShield Awareness features at a glance: what the free Core version, the Business add-on and the Enterprise add-on unlock.",
-    titleSuffix: "HumanShield Awareness",
+      "All SentryMail features at a glance: what the free Core version, the Business add-on and the Enterprise add-on unlock.",
+    titleSuffix: "SentryMail",
 
     // ── Pricing cards (PricingTiers.tsx) ─────────────────────────────────
     popular: "Popular",

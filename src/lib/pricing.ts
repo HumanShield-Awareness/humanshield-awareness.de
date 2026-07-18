@@ -19,12 +19,12 @@
  *     Business (100 %) + Enterprise-Delta (40 %) = 140 %.
  */
 
-export const GITHUB_ORG_URL = "https://github.com/HumanShield-Awareness";
-/** GitHub-Hauptrepository der HumanShield-Software */
-export const GITHUB_REPO_URL = "https://github.com/HumanShield-Awareness/HumanShield.APP";
+export const GITHUB_ORG_URL = "https://github.com/securebits-cyber";
+/** GitHub-Hauptrepository der SentryMail-Software */
+export const GITHUB_REPO_URL = "https://github.com/securebits-cyber/SentryMail";
 
 /** Externe Dokumentation (eigene Subdomain) */
-export const DOCS_URL = "https://docs.humanshield.app";
+export const DOCS_URL = "https://docs.sentrymail.de";
 
 /**
  * Verkaufs-Schalter. Solange `false`, ist KEIN Kaufprozess möglich:
@@ -38,7 +38,7 @@ export const DOCS_URL = "https://docs.humanshield.app";
 export const CHECKOUT_ENABLED = false;
 
 /** Kontakt für Vertriebs-/Enterprise-Anfragen */
-export const SALES_EMAIL = "support@humanshield.app";
+export const SALES_EMAIL = "support@sentrymail.de";
 
 /**
  * Statischer Link zum Paddle-Kundenportal (Merchant of Record). Über diese

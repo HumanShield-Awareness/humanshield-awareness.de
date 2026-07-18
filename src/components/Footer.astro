@@ -20,9 +20,9 @@ const year = new Date().getFullYear();
           href={localizedPath(lang, "/")}
           class="text-lg font-bold lowercase text-gray-900"
           style="letter-spacing:-0.04em"
-          aria-label="humanshield."
+          aria-label="sentrymail."
         >
-          humanshield<span class="text-brand-500">.</span>
+          sentrymail<span class="text-brand-500">.</span>
         </a>
         <p class="mt-3 text-sm text-steel">
           {t("footerTagline")}
@@ -84,7 +84,7 @@ const year = new Date().getFullYear();
     <div
       class="mt-10 flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-6 text-sm text-steel sm:flex-row"
     >
-      <p>© {format("{year} HumanShield Awareness. {rights}", { year, rights: t("footerRights") })}</p>
+      <p>© {format("{year} SentryMail. {rights}", { year, rights: t("footerRights") })}</p>
       <p>
         {t("footerPaddlePrefix")}
         <a

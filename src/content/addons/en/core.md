@@ -20,5 +20,5 @@ groups:
       - Ideal for trying it out and for small teams
 ---
 
-The open-source foundation of HumanShield – free to use and self-hostable.
+The open-source foundation of SentryMail – free to use and self-hostable.
 It includes all the essentials to get started; Business and Enterprise build on top.

@@ -7,7 +7,7 @@ import remarkMermaid from "./src/lib/remark-mermaid.mjs";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://humanshield-awareness.de",
+  site: "https://sentrymail.de",
   // Rein statische Ausgabe für Cloudflare Pages – kein SSR/Node-Prozess
   output: "static",
   // Zweisprachig (DE/EN). prefixDefaultLocale: true → auch Deutsch unter /de/,

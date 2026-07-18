@@ -5,5 +5,5 @@ order: 3
 ---
 
 Die NIS2-Richtlinie verpflichtet betroffene Unternehmen zu Schulungen in
-Cyberhygiene (Art. 21). HumanShield unterstützt Sie bei der Umsetzung Ihrer
+Cyberhygiene (Art. 21). SentryMail unterstützt Sie bei der Umsetzung Ihrer
 Schulungs- und Nachweispflichten.

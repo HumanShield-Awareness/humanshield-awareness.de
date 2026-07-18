@@ -4,5 +4,5 @@ icon: code-bracket
 order: 5
 ---
 
-The core of HumanShield is open source. Review the code, host it yourself –
+The core of SentryMail is open source. Review the code, host it yourself –
 or start right away with Business.

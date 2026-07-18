@@ -4,5 +4,5 @@ icon: map-pin
 order: 1
 ---
 
-HumanShield is fully developed and sold in Germany – with support and short,
+SentryMail is fully developed and sold in Germany – with support and short,
 direct lines to the developers.

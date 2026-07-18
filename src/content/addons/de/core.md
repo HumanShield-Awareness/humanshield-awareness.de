@@ -20,6 +20,6 @@ groups:
       - Ideal zum Ausprobieren und für kleine Teams
 ---
 
-Die quelloffene Basis von HumanShield – kostenlos nutzbar und selbst hostbar.
+Die quelloffene Basis von SentryMail – kostenlos nutzbar und selbst hostbar.
 Enthält alle Grundfunktionen für den Einstieg; Business und Enterprise bauen
 darauf auf.

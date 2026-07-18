@@ -16,7 +16,7 @@ Have the final English wording reviewed by legal counsel before going live.
 
 ## Website operator
 
-**Company name:** HumanShield Awareness
+**Company name:** SecureBits Cyber Security
 **Legal form:** UG (limited liability) in formation
 
 **Address (registered office):**
@@ -27,18 +27,18 @@ Germany
 
 
 **Represented by:**
-- **Name:** Marcel Dellmann
+- **Name:** Aurel Louis Hintzen
 
 **Contact:**
-- **Email:** legal@humanshield.app
-- **Website:** humanshield.app / humanshield-awareness.de
+- **Email:** legal@sentrymail.de
+- **Website:** sentrymail.de
 
 
 ---
 
 ## Representation and liability
 
-This website is operated by **[ORGANISATION]**. Despite careful review, no liability is assumed for the accuracy and completeness of the content, to the extent permitted by law.
+This website is operated by **SecureBits Cyber Security UG**. Despite careful review, no liability is assumed for the accuracy and completeness of the content, to the extent permitted by law.
 
 **Disclaimer:**
 - The content of this website is provided for information purposes only
@@ -56,7 +56,7 @@ This website is operated by **[ORGANISATION]**. Despite careful review, no liabi
   - For questions about payments/invoices: [support@paddle.com](https://support.paddle.com)
   - Paddle privacy policy: https://www.paddle.com/privacy
 
-**Note:** HumanShield Awareness UG only receives pseudonymised payment confirmations from Paddle. The complete payment processing is carried out by Paddle as an independent payment service provider.
+**Note:** SecureBits Cyber Security UG only receives pseudonymised payment confirmations from Paddle. The complete payment processing is carried out by Paddle as an independent payment service provider.
 
 ---
 
@@ -88,8 +88,8 @@ This website is operated by **[ORGANISATION]**. Despite careful review, no liabi
 ## Data protection officer (GDPR)
 
 **Data protection contact:**
-- Email: legal@humanshield.app
-- In writing: HumanShield Awareness UG, Lindental 8d, 94032 Passau
+- Email: legal@sentrymail.de
+- In writing: SecureBits Cyber Security UG, Lindental 8d, 94032 Passau
 
 **Competent supervisory authority (GDPR):**
 - **Germany:** State Data Protection Supervisory Authority (LfDA) of the respective federal state
@@ -124,8 +124,7 @@ This website and the licensing service comply with:
 
 **Scope:**
 This legal notice applies to:
-- humanshield.app
-- humanshield-awareness.de
+- sentrymail.de
 - all associated subdomains
 
 **Changes:** Changes to this legal notice are made without prior notice.
@@ -136,6 +135,6 @@ This legal notice applies to:
 
 ## Links & external resources
 
-- **GitHub:** https://github.com/HumanShield-Awareness/HumanShield.APP (Open Core)
-- **Support:** support@humanshield.app
+- **GitHub:** https://github.com/securebits-cyber/SentryMail (Open Core)
+- **Support:** support@sentrymail.de
 
