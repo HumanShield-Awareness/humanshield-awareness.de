@@ -38,6 +38,7 @@ dist/
 .idea/
 .DS_Store
 *.swp
+*.code-workspace
 
 # --- Logs ---
 *.log
@@ -47,5 +48,5 @@ logs/
 .claude/
 CLAUDE.MD
 /docs
-Design/
+homeshield-design-system
 Screenshots/
