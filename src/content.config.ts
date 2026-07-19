@@ -40,8 +40,15 @@ const features = defineCollection({
       "shield-check",
       "code-bracket",
       "lock-closed",
+      "video-camera",
     ]),
     order: z.number(),
+    /** Hebt die Karte als prominentes „Super-Feature" über dem Grid hervor */
+    superFeature: z.boolean().default(false),
+    /** Kleiner Label-Chip auf Super-Feature-Karten (z.B. „Enterprise Add-on") */
+    tag: z.string().optional(),
+    /** Stichpunkt-Highlights, nur auf Super-Feature-Karten gerendert */
+    highlights: z.array(z.string()).optional(),
   }),
 });
 

@@ -4,6 +4,12 @@ tagline: Business plus Plattform, KI & SSO – als Upgrade (+40 %)
 order: 2
 highlighted: false
 groups:
+  - title: Pflichtschulungen (LMS)
+    features:
+      - Automatische Kurszuweisung bei zu niedrigem Awareness-Score
+      - Self-hosted Video-Auslieferung (kein Drittanbieter-CDN)
+      - Manipulationssicheres Fortschritts-Tracking
+      - Quiz-Gate & revisionssicherer Abschluss-Nachweis
   - title: Plattform
     features:
       - White-Label (eigene Marke, Domain, Absender)

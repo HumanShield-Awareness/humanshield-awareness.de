@@ -4,6 +4,12 @@ tagline: Business plus platform, AI & SSO – as an upgrade (+40%)
 order: 2
 highlighted: false
 groups:
+  - title: Mandatory training (LMS)
+    features:
+      - Automatic course assignment on low awareness scores
+      - Self-hosted video delivery (no third-party CDN)
+      - Tamper-proof progress tracking
+      - Quiz gate & audit-proof completion records
   - title: Platform
     features:
       - White-label (your own brand, domain, sender)
