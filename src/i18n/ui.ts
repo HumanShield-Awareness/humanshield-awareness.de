@@ -48,7 +48,7 @@ export const ui = {
 
     // ── Startseite ───────────────────────────────────────────────────────
     homeSeeAllFeatures: "Alle Funktionen der Add-ons ansehen",
-    superFeatureBadge: "Super-Feature",
+    superFeatureBadge: "New Feature",
     madeInGermanyBadge: "Made in Germany",
 
     heroImageAlt:
@@ -188,7 +188,7 @@ export const ui = {
 
     // ── Home ─────────────────────────────────────────────────────────────
     homeSeeAllFeatures: "See all add-on features",
-    superFeatureBadge: "Super Feature",
+    superFeatureBadge: "New Feature",
     madeInGermanyBadge: "Made in Germany",
 
     heroImageAlt:
